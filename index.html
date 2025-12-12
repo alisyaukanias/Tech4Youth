@@ -3,37 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PugarApp - Panduan Belajar Islam Terpercaya</title>
-    <meta name="description" content="Aplikasi one-stop untuk belajar Islam mulai dari nol. Fiqih, Sejarah, dan Ibadah yang terverifikasi.">
+    <title>Pugar Studio - Generasi Sehat, Teknologi & Alam</title>
+    <meta name="description" content="Gerakan pemuda untuk kesehatan jasmani rohani yang selaras dengan teknologi dan pelestarian alam.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Konfigurasi Tailwind -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        brand: {
-                            50: '#faf5ff',  /* Ungu sangat muda untuk background */
-                            100: '#f3e8ff', /* Ungu muda lembut */
-                            200: '#e9d5ff',
-                            500: '#a855f7', /* Ungu cerah untuk aksen */
-                            600: '#9333ea', /* Warna Utama (Primary) */
-                            700: '#7e22ce', /* Hover state */
-                            800: '#6b21a8', /* Text gelap */
-                            900: '#581c87', /* Text sangat gelap / Background section gelap */
-                        }
-                    },
                     fontFamily: {
                         sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-green': '#10B981',
+                        'brand-dark': '#064E3B',
+                        'brand-blue': '#3B82F6',
+                        'brand-earth': '#78350F',
                     }
                 }
             }
@@ -41,515 +37,597 @@
     </script>
 
     <style>
-        /* Custom Phone Frame Animation */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/alli.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
+        .hover-card {
+            transition: all 0.3s ease;
         }
-        
-        .phone-frame {
-            border: 12px solid #1f2937;
-            border-radius: 40px;
-            overflow: hidden;
-            position: relative;
-            background: white;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-        .phone-notch {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 25px;
-            background: #1f2937;
-            border-bottom-left-radius: 12px;
-            border-bottom-right-radius: 12px;
-            z-index: 10;
-        }
-        
-        /* Hide scrollbar for internal phone content */
-        .no-scrollbar::-webkit-scrollbar {
+        .hide-scrollbar::-webkit-scrollbar {
             display: none;
         }
-        .no-scrollbar {
+        .hide-scrollbar {
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+        /* Animasi Tab */
+        .tab-content, .prog-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        .tab-content.active, .prog-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
-<body class="font-sans text-slate-600 antialiased bg-white">
+<body class="font-sans text-gray-700 antialiased selection:bg-brand-green selection:text-white">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <div class="w-10 h-10 bg-brand-600 rounded-xl flex items-center justify-center text-white text-xl shadow-lg shadow-brand-500/30">
-                        <i class="fa-solid fa-kaaba"></i>
-                    </div>
-                    <span class="font-bold text-2xl text-slate-800 tracking-tight">Pugar<span class="text-brand-600">App</span></span>
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 bg-gradient-to-br from-brand-green to-brand-blue rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:rotate-12 transition-transform">
+                    <img src="assets/iconi.png">
                 </div>
+                <span class="text-xl font-bold text-gray-800 tracking-tight">Pugar<span class="text-brand-green">Studio</span></span>
+            </a>
 
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center">
-                    <div class="flex space-x-8 items-center mr-6">
-                        <a href="#tentang" class="text-slate-600 hover:text-brand-600 font-medium transition" data-i18n="nav_about">Tentang</a>
-                        <a href="#fitur" class="text-slate-600 hover:text-brand-600 font-medium transition" data-i18n="nav_features">Fitur</a>
-                        <a href="#validasi" class="text-slate-600 hover:text-brand-600 font-medium transition" data-i18n="nav_validation">Validasi</a>
-                        <a href="#donasi" class="px-5 py-2.5 bg-brand-600 text-white rounded-full font-semibold hover:bg-brand-700 transition shadow-lg shadow-brand-500/30 flex items-center gap-2">
-                            <i class="fa-solid fa-heart"></i> <span data-i18n="nav_support">Dukung Kami</span>
-                        </a>
-                    </div>
-                    <!-- Language Toggle Desktop -->
-                    <div class="flex items-center gap-2 border-l border-slate-200 pl-6">
-                        <button onclick="setLanguage('id')" id="btn-id" class="text-sm font-bold text-brand-600 transition">ID</button>
-                        <span class="text-slate-300 text-xs">|</span>
-                        <button onclick="setLanguage('en')" id="btn-en" class="text-sm font-medium text-slate-400 hover:text-brand-600 transition">EN</button>
-                    </div>
-                </div>
+            <!-- Menu Desktop -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#home" class="text-sm font-semibold text-gray-600 hover:text-brand-green transition" data-i18n="nav_home">Beranda</a>
+                <a href="#visi" class="text-sm font-semibold text-gray-600 hover:text-brand-green transition" data-i18n="nav_vision">Visi Kami</a>
+                <a href="#program" class="text-sm font-semibold text-gray-600 hover:text-brand-green transition" data-i18n="nav_program">Aksi Nyata</a>
+                <a href="#products" class="text-sm font-semibold text-gray-600 hover:text-brand-green transition" data-i18n="nav_products">Karya Digital</a>
+                <a href="#donasi" class="bg-brand-dark text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-brand-green transition shadow-lg hover:shadow-green-500/30" data-i18n="nav_support">Dukung Kami</a>
+                
+                <!-- Language Toggle Desktop -->
+                <button onclick="toggleLanguage()" class="flex items-center gap-1 px-3 py-1 border border-gray-300 rounded-full hover:bg-gray-100 transition text-sm">
+                    <i class="fa-solid fa-globe text-gray-500"></i> <span id="current-lang-display" class="font-bold">ID</span>
+                </button>
+            </div>
 
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-brand-600 focus:outline-none">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
-                </div>
+            <!-- Tombol Mobile Menu & Lang -->
+            <div class="md:hidden flex items-center gap-4">
+                 <button onclick="toggleLanguage()" class="flex items-center gap-1 px-2 py-1 border border-gray-300 rounded-lg hover:bg-gray-100 transition text-xs">
+                    <span id="current-lang-display-mobile" class="font-bold">ID</span>
+                </button>
+                <button id="mobile-menu-btn" class="text-gray-600 focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
             </div>
         </div>
 
-        <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full">
-            <div class="px-4 pt-2 pb-6 space-y-2 shadow-xl">
-                <a href="#fitur" class="block px-3 py-3 rounded-lg text-base font-medium text-slate-600 hover:bg-brand-50 hover:text-brand-600" data-i18n="nav_features">Fitur Aplikasi</a>
-                <a href="#validasi" class="block px-3 py-3 rounded-lg text-base font-medium text-slate-600 hover:bg-brand-50 hover:text-brand-600" data-i18n="nav_validation">Validasi Ulama</a>
-                <a href="#tentang" class="block px-3 py-3 rounded-lg text-base font-medium text-slate-600 hover:bg-brand-50 hover:text-brand-600" data-i18n="nav_about">Tentang Kami</a>
-                <a href="#donasi" class="block px-3 py-3 rounded-lg text-base font-medium text-brand-600 bg-brand-50 font-bold">
-                    <i class="fa-solid fa-heart mr-2"></i> <span data-i18n="nav_support">Dukung Kami</span>
-                </a>
-                <!-- Language Toggle Mobile -->
-                <div class="flex items-center justify-center gap-4 mt-4 pt-4 border-t border-slate-100">
-                    <button onclick="setLanguage('id')" class="text-sm font-bold text-brand-600 mobile-lang-btn" data-lang="id">Bahasa Indonesia</button>
-                    <span class="text-slate-300">|</span>
-                    <button onclick="setLanguage('en')" class="text-sm font-medium text-slate-500 mobile-lang-btn" data-lang="en">English</button>
-                </div>
-            </div>
+        <!-- Menu Mobile (Dropdown) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4 absolute w-full shadow-lg">
+            <a href="#home" class="block py-2 text-gray-600 font-medium hover:text-brand-green" data-i18n="nav_home">Beranda</a>
+            <a href="#visi" class="block py-2 text-gray-600 font-medium hover:text-brand-green" data-i18n="nav_vision">Visi Kami</a>
+            <a href="#program" class="block py-2 text-gray-600 font-medium hover:text-brand-green" data-i18n="nav_program">Aksi Nyata</a>
+            <a href="#products" class="block py-2 text-gray-600 font-medium hover:text-brand-green" data-i18n="nav_products">Karya Digital</a>
+            <a href="#donasi" class="block mt-4 text-center bg-brand-green text-white py-2 rounded-lg font-bold" data-i18n="nav_support">Dukung Kami</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 lg:pt-48 lg:pb-32 bg-gradient-to-b from-brand-50 to-white overflow-hidden relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+    <section id="home" class="hero-bg h-screen flex items-center justify-center text-center px-6 relative">
+        <div class="max-w-4xl mx-auto text-white mt-16">
+            <span class="inline-block py-1 px-3 rounded-full bg-brand-green/20 border border-brand-green/50 text-brand-green font-semibold text-sm mb-6 backdrop-blur-sm animate-pulse" data-i18n="hero_badge">
+                🌱 Membangun Masa Depan Lestari
+            </span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight" data-i18n="hero_title">
+                Harmoni Antara Jiwa, Raga,<br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">Teknologi & Alam</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed" data-i18n="hero_desc">
+                Wadah bagi generasi muda untuk tumbuh sehat jasmani, rohani, dan mental, — memanfaatkan teknologi secara bijak, dan kembali merawat bumi.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#program" class="bg-brand-green text-white px-8 py-3.5 rounded-full font-bold hover:bg-green-500 transition shadow-lg shadow-green-500/40" data-i18n="hero_btn_program">
+                    Lihat Program
+                </a>
+                <a href="#visi" class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-3.5 rounded-full font-bold hover:bg-white/20 transition" data-i18n="hero_btn_visi">
+                    Pelajari Visi Kami
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50">
+            <i class="fa-solid fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Section Visi & Misi -->
+    <section id="visi" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-i18n="visi_title">Pilar Pergerakan</h2>
+                <p class="text-gray-600 text-lg" data-i18n="visi_desc">Kami percaya keseimbangan adalah kunci. Gerakan ini berdiri di atas empat fondasi utama untuk menciptakan manusia yang utuh.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Pilar 1 -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover-card relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-red-50 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 bg-red-100 text-red-500 rounded-xl flex items-center justify-center text-2xl mb-6 relative z-10">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900" data-i18n="pillar_1_title">Sehat Seutuhnya</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm" data-i18n="pillar_1_desc">
+                        Membangun keseimbangan raga yang bugar, mental yang tangguh, dan jiwa yang tenang sebagai fondasi kehidupan yang utuh.
+                    </p>
+                </div>
+
+                <!-- Pilar 2 -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover-card relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 bg-green-100 text-brand-green rounded-xl flex items-center justify-center text-2xl mb-6 relative z-10">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900" data-i18n="pillar_2_title">Sahabat Alam</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm" data-i18n="pillar_2_desc">
+                        Menanamkan kecintaan pada lingkungan serta melatih ketangguhan dan kemandirian hidup melalui interaksi nyata dengan alam.
+                    </p>
+                </div>
+
+                <!-- Pilar 3 -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover-card relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 bg-blue-100 text-brand-blue rounded-xl flex items-center justify-center text-2xl mb-6 relative z-10">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900" data-i18n="pillar_3_title">Tanggap Teknologi</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm" data-i18n="pillar_3_desc">
+                        Mencetak generasi yang tidak hanya adaptif, tetapi juga mampu berinovasi dan mengoptimalkan teknologi secara bijak.
+                    </p>
+                </div>
+
+                <!-- Pilar 4 -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover-card relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-orange-50 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 bg-orange-100 text-orange-500 rounded-xl flex items-center justify-center text-2xl mb-6 relative z-10">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900" data-i18n="pillar_4_title">Harmoni Sosial</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm" data-i18n="pillar_4_desc">
+                        Memupuk rasa empati dan kesadaran akan hak serta kewajiban demi terciptanya kehidupan bermasyarakat yang rukun.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Program (New Vertical Layout with Side Nav) -->
+    <section id="program" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="mb-12 text-center">
+                <span class="text-brand-green font-bold tracking-wider uppercase text-sm mb-2 block" data-i18n="prog_badge">Aksi Nyata</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-i18n="prog_title">Pengembangan Keterampilan Dasar</h2>
+            </div>
+
+            <!-- Split Layout: Content (Left) & Nav (Right) -->
+            <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 min-h-[500px] justify-center">
                 
-                <!-- Text Content -->
-                <div class="text-center lg:text-left z-10">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-100 text-brand-700 text-sm font-semibold mb-6 border border-brand-200">
-                        <span class="w-2 h-2 rounded-full bg-brand-600 animate-pulse"></span>
-                        <span data-i18n="hero_tag">Aplikasi Belajar Islam #1 Untuk Pemula</span>
-                    </div>
-                    <h1 class="text-4xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-6" data-i18n="hero_title">
-                        Belajar Islam <br>
-                        <span class="text-brand-600">Tanpa Rasa Malu</span>, <br>
-                        Mulai dari Sini.
-                    </h1>
-                    <p class="text-lg text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0" data-i18n="hero_desc">
-                        Bingung mulai dari mana? Merasa terlambat belajar? 
-                        <strong>PugarApp</strong> hadir sebagai sahabat hijrahmu. 
-                        Panduan ibadah lengkap, fiqih harian, hingga sejarah nabi dalam satu aplikasi.
-                    </p>
+                <!-- LEFT: Content Display Area (70%) -->
+                <div class="lg:w-3/5 order-2 lg:order-1 bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden relative">
                     
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <button class="flex items-center justify-center gap-3 px-8 py-4 bg-slate-900 text-white rounded-xl hover:bg-slate-800 transition shadow-xl shadow-slate-900/20">
-                            <i class="fa-brands fa-google-play text-2xl"></i>
-                            <div class="text-left">
-                                <div class="text-xs text-slate-400">GET IT ON</div>
-                                <div class="font-bold text-lg leading-none">Google Play</div>
+                    <!-- Program 1: Yoga -->
+                    <div id="prog-tab1" class="prog-content active h-full">
+                        <div class="w-full aspect-[16/9] relative overflow-hidden">
+                            <img src="assets/gemas.png" alt="GEMAS" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4">
+                                <span class="text-xs font-bold uppercase tracking-wider bg-brand-green text-white px-3 py-1.5 rounded-full shadow-md" data-i18n="tag_personal">Personal Development</span>
                             </div>
-                        </button>
-                        <button class="flex items-center justify-center gap-3 px-8 py-4 bg-white border border-slate-200 text-slate-900 rounded-xl hover:bg-slate-50 transition shadow-sm">
-                            <i class="fa-brands fa-apple text-2xl"></i>
-                            <div class="text-left">
-                                <div class="text-xs text-slate-600">Download on the</div>
-                                <div class="font-bold text-lg leading-none">App Store</div>
-                            </div>
-                        </button>
+                        </div>
+                        <div class="p-8 lg:p-10">
+                            <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4" data-i18n="prog_1_title">GeMaS - Gerakan Remaja Sehat</h3>
+                            <p class="text-gray-600 mb-8 leading-relaxed text-lg" data-i18n="prog_1_desc">
+                                Kita semua mendambakan generasi penerus yang tangguh, bukan? Lewat program ini, kami tidak hanya menempa fisik mereka agar bugar, tetapi juga merawat kesehatan mental dan kedalaman spiritualnya. Kami ingin memastikan setiap anak tumbuh dengan jiwa yang tenang dalam raga yang kuat, siap menghadapi tantangan zaman dengan kewarasan yang utuh.
+                            </p>
+                        </div>
                     </div>
-                    <p class="mt-4 text-sm text-slate-500" data-i18n="hero_free">
-                        *Gratis sepenuhnya & bebas iklan mengganggu.
-                    </p>
+
+                    <!-- Program 2: Tech -->
+                    <div id="prog-tab2" class="prog-content h-full">
+                        <div class="w-full aspect-[16/9] relative overflow-hidden">
+                            <img src="assets/popo.png" alt="POPO" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4">
+                                <span class="text-xs font-bold uppercase tracking-wider bg-brand-blue text-white px-3 py-1.5 rounded-full shadow-md" data-i18n="tag_social">Interpersonal</span>
+                            </div>
+                        </div>
+                        <div class="p-8 lg:p-10">
+                            <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4" data-i18n="prog_2_title">POPO - Pemimpin Oke, Pengikut Oke</h3>
+                            <p class="text-gray-600 mb-8 leading-relaxed text-lg" data-i18n="prog_2_desc">
+                                Hidup rukun di tengah masyarakat modern adalah tantangan tersendiri. Di sini, kami menanamkan kesadaran sosial kepada remaja: memahami hak diri sendiri sembari menghormati kewajiban terhadap orang lain. Tujuannya adalah menciptakan harmoni, di mana mereka bisa menjadi warga yang santun, peduli, dan membawa dampak positif bagi lingkungannya.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Program 3: Farming -->
+                    <div id="prog-tab3" class="prog-content h-full">
+                        <div class="w-full aspect-[16/9] relative overflow-hidden">
+                            <img src="assets/getek.png" alt="GETEK" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4">
+                                <span class="text-xs font-bold uppercase tracking-wider bg-brand-dark text-white px-3 py-1.5 rounded-full shadow-md" data-i18n="tag_tech">Keterampilan Digital</span>
+                            </div>
+                        </div>
+                        <div class="p-8 lg:p-10">
+                            <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4" data-i18n="prog_3_title">GeTek - Genggam Teknologi</h3>
+                            <p class="text-gray-600 mb-8 leading-relaxed text-lg" data-i18n="prog_3_desc">
+                                Teknologi adalah kenyataan yang tak terhindarkan. Tugas kami memastikan remaja tidak ‘tenggelam’, melainkan mampu berenang memanfaatkannya. Kami ajarkan mereka cara mengoptimalkan teknologi agar hidup lebih produktif dan efisien. Dan khusus bagi mereka yang memiliki bakat lebih, kami sediakan ruang inkubasi untuk berkreasi melahirkan inovasi yang nyata.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Program 4: Discussion -->
+                    <div id="prog-tab4" class="prog-content h-full">
+                        <div class="w-full aspect-[16/9] relative overflow-hidden">
+                            <img src="assets/lotec.png" alt="LOTEC" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4">
+                                <span class="text-xs font-bold uppercase tracking-wider bg-orange-500 text-white px-3 py-1.5 rounded-full shadow-md" data-i18n="tag_nature">Keterampilan Hidup</span>
+                            </div>
+                        </div>
+                        <div class="p-8 lg:p-10">
+                            <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4" data-i18n="prog_4_title">LoTec - Low Technology</h3>
+                            <p class="text-gray-600 mb-8 leading-relaxed text-lg" data-i18n="prog_4_desc">
+                                Namun, kami juga sadar bahwa ketangguhan sejati diuji saat fasilitas tiada. Program ini adalah penyeimbang; kami melatih kemandirian dan keterampilan dasar kehidupan (life skills). Agar kelak, dalam situasi minim teknologi sekalipun, anak-anak kita tidak menjadi lumpuh, melainkan tetap mampu bertahan hidup dan berdaya guna.
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
 
-                <!-- App Mockup -->
-                <div class="relative lg:h-[600px] flex justify-center items-center z-10">
-                    <!-- Background Decoration -->
-                    <div class="absolute w-[500px] h-[500px] bg-brand-200 rounded-full blur-3xl opacity-40 -z-10"></div>
+                <!-- RIGHT: Navigation Tabs (30%) -->
+                <div class="lg:w-1/5 order-1 lg:order-2 flex flex-col gap-3">
+                    <button onclick="switchProg('prog-tab1')" id="btn-prog-tab1" class="prog-btn flex items-center p-4 rounded-xl text-left transition-all duration-300 bg-brand-green text-white shadow-lg ring-2 ring-brand-green/20">
+                        <div class="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center mr-4 shrink-0">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <div class="font-bold text-sm">GEMAS</div>
+                    </button>
+
+                    <button onclick="switchProg('prog-tab2')" id="btn-prog-tab2" class="prog-btn flex items-center p-4 rounded-xl text-left transition-all duration-300 bg-white hover:bg-gray-50 text-gray-600 border border-gray-200">
+                        <div class="w-10 h-10 rounded-lg bg-brand-blue/10 text-brand-blue flex items-center justify-center mr-4 shrink-0">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <div class="font-bold text-sm">POPO</div>
+                    </button>
+
+                    <button onclick="switchProg('prog-tab3')" id="btn-prog-tab3" class="prog-btn flex items-center p-4 rounded-xl text-left transition-all duration-300 bg-white hover:bg-gray-50 text-gray-600 border border-gray-200">
+                        <div class="w-10 h-10 rounded-lg bg-brand-dark/10 text-brand-dark flex items-center justify-center mr-4 shrink-0">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <div class="font-bold text-sm">GETEK</div>
+                    </button>
+
+                    <button onclick="switchProg('prog-tab4')" id="btn-prog-tab4" class="prog-btn flex items-center p-4 rounded-xl text-left transition-all duration-300 bg-white hover:bg-gray-50 text-gray-600 border border-gray-200">
+                        <div class="w-10 h-10 rounded-lg bg-orange-100 text-orange-500 flex items-center justify-center mr-4 shrink-0">
+                            <i class="fa-solid fa-seedling"></i>
+                        </div>
+                        <div class="font-bold text-sm">LOTEC</div>
+                    </button>                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Produk Digital (New) -->
+    <section id="products" class="py-24 bg-gray-50 relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-blue/5 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-green/5 rounded-full blur-3xl"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-12">
+                <span class="text-brand-blue font-bold tracking-wider uppercase text-sm mb-2 block" data-i18n="prod_badge">Karya Digital</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-i18n="prod_title">Pendamping Digital Remaja</h2>
+            </div>
+
+            <!-- Tabs Layout -->
+            <div class="max-w-5xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                <!-- Tab Menu -->
+                <div class="flex flex-wrap items-center justify-center gap-2 p-2 bg-gray-100/80 border-b border-gray-200" role="tablist">
+                    <button onclick="switchTab('tab1')" id="btn-tab1" class="tab-btn px-6 py-3 rounded-xl text-sm font-bold text-gray-600 transition-all duration-300 hover:bg-white hover:text-brand-blue focus:outline-none bg-white shadow-sm text-brand-blue ring-1 ring-black/5" role="tab" aria-selected="true">
+                        <i class="fa-solid fa-mobile-screen mr-2"></i> Mini AI
+                    </button>
+                    <button onclick="switchTab('tab2')" id="btn-tab2" class="tab-btn px-6 py-3 rounded-xl text-sm font-bold text-gray-600 transition-all duration-300 hover:bg-white hover:text-brand-green focus:outline-none" role="tab" aria-selected="false">
+                        <i class="fa-solid fa-mobile-screen mr-2"></i> Mobile Game
+                    </button>
+                    <button onclick="switchTab('tab3')" id="btn-tab3" class="tab-btn px-6 py-3 rounded-xl text-sm font-bold text-gray-600 transition-all duration-300 hover:bg-white hover:text-brand-earth focus:outline-none" role="tab" aria-selected="false">
+                        <i class="fa-solid fa-mobile-screen mr-2"></i> Mobile App
+                    </button>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="p-8 md:p-12 min-h-[400px] relative">
                     
-                    <div class="phone-frame w-[300px] h-[600px] animate-float bg-slate-50">
-                        <div class="phone-notch"></div>
-                        <!-- Mockup Screen Content: Compact Single Screen Dashboard -->
-                        <div class="h-full w-full bg-slate-50 overflow-hidden flex flex-col relative">
-                            <!-- Status Bar -->
-                            <div class="h-6 w-full flex justify-between items-center px-6 pt-2 z-20 opacity-50 shrink-0">
-                                <span class="text-[10px] font-bold text-slate-800">09:41</span>
-                                <div class="flex gap-1">
-                                    <div class="w-3 h-3 bg-slate-800 rounded-full text-[8px] flex items-center justify-center text-white"><i class="fa-solid fa-signal"></i></div>
-                                    <div class="w-3 h-3 bg-slate-800 rounded-full text-[8px] flex items-center justify-center text-white"><i class="fa-solid fa-wifi"></i></div>
+                    <!-- Tab 1: GemaSehat App -->
+                    <div id="tab1" class="tab-content active" role="tabpanel">
+                        <div class="flex flex-col md:flex-row items-center gap-10">
+                            <div class="md:w-1/2 relative group">
+                                <div class="absolute inset-0 bg-brand-blue/20 rounded-2xl transform rotate-3 transition-transform group-hover:rotate-6"></div>
+                                <div class="relative w-full aspect-[4/3] rounded-2xl shadow-lg bg-gray-100 overflow-hidden">
+                                <img 
+                                    src="assets/mini-ai.png" 
+                                    alt="AI" 
+                                    class="w-full h-full object-contain"
+                                >
+                            </div>
+                            </div>
+                            <div class="md:w-1/2">
+                                <div class="w-12 h-12 bg-blue-100 text-brand-blue rounded-xl flex items-center justify-center text-xl mb-6">
+                                    <i class="fa-solid fa-mobile-screen"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="prod_1_name">SahabatCurhat AI</h3>
+                                <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="prod_1_detail">
+                                    Menyediakan dukungan emosional yang selalu tersedia, pribadi, terpersonalisasi, dan dengan filter keamanan tinggi. Sebuah jangkar penting dalam menavigasi kesejahteraan mental mereka.
+                                </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: EcoMonitor -->
+                    <div id="tab2" class="tab-content" role="tabpanel">
+                        <div class="flex flex-col md:flex-row items-center gap-10">
+                            <div class="md:w-1/2 relative group">
+                                <div class="absolute inset-0 bg-brand-green/20 rounded-2xl transform -rotate-3 transition-transform group-hover:-rotate-6"></div>
+                                    <div class="relative w-full aspect-[4/3] rounded-2xl shadow-lg bg-gray-100 overflow-hidden">
+                                    <img 
+                                        src="assets/sims.png" 
+                                        alt="Game" 
+                                        class="w-full h-full object-contain"
+                                    >
+                                </div>
+                            </div>
+                            <div class="md:w-1/2">
+                                <div class="w-12 h-12 bg-green-100 text-brand-green rounded-xl flex items-center justify-center text-xl mb-6">
+                                    <i class="fa-solid fa-mobile-screen"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="prod_2_name">Game Simulasi</h3>
+                                <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="prod_2_detail">
+                                    Lingkungan yang aman dan bebas risiko bagi remaja untuk menguji coba pilihan hidup yang penting dan membangun kepercayaan diri dalam kemampuan mengambil keputusan.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3: EduTech Academy -->
+                    <div id="tab3" class="tab-content" role="tabpanel">
+                        <div class="flex flex-col md:flex-row items-center gap-10">
+                            <div class="md:w-1/2 relative group">
+                                <div class="absolute inset-0 bg-brand-earth/20 rounded-2xl transform rotate-3 transition-transform group-hover:rotate-6"></div>
+                                    <div class="relative w-full aspect-[4/3] rounded-2xl shadow-lg bg-gray-100 overflow-hidden">
+                                    <img 
+                                        src="assets/app-psi.jpg" 
+                                        alt="App" 
+                                        class="w-full h-full object-contain"
+                                    >
+                                    </div>
+                                </div>
+                            <div class="md:w-1/2">
+                                <div class="w-12 h-12 bg-orange-100 text-brand-earth rounded-xl flex items-center justify-center text-xl mb-6">
+                                    <i class="fa-solid fa-mobile-screen"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="prod_3_name">Aplikasi GrowthTracker</h3>
+                                <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="prod_3_detail">
+                                    Aplikasi yang dirancang untuk memberdayakan dan membekali remaja dengan keterampilan esensial: kesadaran diri (self-awareness), penguasaan interpersonal, dan manajemen hidup.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Quote / Motivational Section -->
+    <section class="py-20 bg-brand-dark text-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10">
+            <i class="fa-solid fa-quote-right text-[20rem] absolute -top-10 -right-20"></i>
+        </div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-2xl md:text-4xl font-serif italic" data-i18n="quote_text">
+                "Pahami dirimu, orang lain, dan dunia di sekitarmu. Lalu, pelajari cara menggunakan teknologi dengan bijak. Dengan begitu, hidup jadi lebih tenang, mudah, dan damai."
+            </h2>
+        </div>
+    </section>
+
+    <!-- Section Donasi -->
+    <section id="donasi" class="py-24 bg-white relative border-b border-gray-100">
+        <div class="container mx-auto px-6">
+            <!-- Header Section -->
+            <div class="text-center max-w-5xl mx-auto mb-12">
+                <span class="text-brand-green font-bold tracking-wider uppercase text-sm mb-2 block" data-i18n="donate_badge">Mari Berbagi</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-i18n="donate_title">Dukung Langkah Kecil Kami</h2>
+                <p class="text-gray-600 text-lg" data-i18n="donate_desc">Kontribusi Anda menjadi bahan bakar bagi kami untuk terus menanam kebaikan, baik berupa pohon, bibit tanaman, maupun ilmu pengetahuan bagi generasi muda.</p>
+            </div>
+
+            <!-- Grid Container: Left (Goal & Allocation) & Right (Donation Methods) -->
+            <!-- PERUBAHAN DI SINI: items-start diubah menjadi items-center agar vertikal rata tengah -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center max-w-6xl mx-auto">
+                
+                <!-- KOLOM KIRI: Visualisasi Kebutuhan & Pie Chart -->
+                <div class="flex flex-col gap-6">
+                    
+                    <!-- 1. BLOK KEBUTUHAN DANA (Fundraising Goal) -->
+                    <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-lg relative overflow-hidden">
+                        <div class="flex justify-between items-end mb-2">
+                            <div>
+                                <h3 class="text-gray-500 font-semibold tracking-wide" data-i18n="goal_label">Menuju Langkah Pertama Kami</h3>
+                                <div class="text-3xl font-bold text-brand-green mt-1" data-i18n="goal_nominal">Rp 0</div>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-sm text-gray-600 block" data-i18n="target_label">dari</span>
+                                <span class="text-gray-700 font-bold" data-i18n="target_nominal">Rp 260.000.000</span>
+                            </div>
+                        </div>
+
+                        <!-- Main Progress Bar -->
+                        <div class="w-full bg-gray-100 rounded-full h-4 mb-4 overflow-hidden">
+                            <div class="bg-gradient-to-r from-brand-green to-green-400 h-4 rounded-full shadow-md" style="width: 0%"></div>
+                        </div>
+
+                        <!-- Stats Grid -->
+                        <div class="grid grid-cols-2 gap-4 border-t border-gray-100 pt-4 text-center">
+                            <div>
+                                <span class="block text-xl font-bold text-gray-800">0%</span>
+                                <span class="text-xs text-gray-500" data-i18n="goal_reached">Tercapai</span>
+                            </div>
+                            <div class="border-l border-gray-100">
+                                <span class="block text-xl font-bold text-gray-800">0</span>
+                                <span class="text-xs text-gray-500" data-i18n="goal_donors">Donatur</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. BLOK ALOKASI DANA (Pie Chart) -->
+                    <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 shadow-lg relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-blue to-brand-green"></div>
+                        
+                        <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+                            <i class="fa-solid fa-chart-pie text-brand-green"></i>
+                            <span data-i18n="alloc_title">Ke Mana Dukungan Anda Mengalir?</span>
+                        </h3>
+
+                        <div class="flex flex-col md:flex-row items-center gap-8">
+                            <!-- Pie Chart Circle (CSS Conic Gradient) -->
+                            <div class="relative w-40 h-40 flex-shrink-0">
+                                <div class="w-full h-full rounded-full shadow-inner" 
+                                     style="background: conic-gradient(
+                                        #16a34a 0% 46%, 
+                                        #3b82f6 46% 69%, 
+                                        #eab308 69% 100%
+                                     );">
+                                </div>
+                                <!-- Inner White Circle for Donut Chart effect (Optional) -->
+                                <div class="absolute inset-0 m-auto w-24 h-24 bg-gray-50 rounded-full flex items-center justify-center shadow-sm">
+                                    <span class="text-xs font-bold text-gray-400">100%</span>
                                 </div>
                             </div>
 
-                            <!-- Content Wrapper -->
-                            <div class="flex-1 flex flex-col pt-4 px-4 pb-0 overflow-hidden">
-                                
-                                <!-- Header: Compact -->
-                                <div class="flex justify-between items-center mb-4 shrink-0">
+                            <!-- Legend -->
+                            <div class="flex-1 w-full space-y-3">
+                                <!-- Item 1 -->
+                                <div class="flex items-center justify-between text-sm">
                                     <div class="flex items-center gap-2">
-                                        <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center overflow-hidden border border-slate-200 shadow-sm">
-                                             <img src="https://ui-avatars.com/api/?name=Ahmad&background=9333ea&color=fff" alt="Profile" class="w-full h-full object-cover">
-                                        </div>
-                                        <div>
-                                            <h3 class="text-sm font-bold text-slate-800 leading-tight">Assalamu'alaikum</h3>
-                                            <p class="text-[10px] text-slate-500">Ahmad</p>
-                                        </div>
+                                        <div class="w-3 h-3 rounded-full bg-green-600"></div>
+                                        <span class="text-gray-700" data-i18n="alloc_equip">Teknologi untuk mencipta</span>
                                     </div>
-                                    <div class="flex gap-2">
-                                         <button class="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center text-slate-400 border border-slate-100 hover:text-brand-600 transition"><i class="fa-regular fa-bell text-xs"></i></button>
-                                         <button class="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center text-slate-400 border border-slate-100 hover:text-brand-600 transition"><i class="fa-solid fa-gear text-xs"></i></button>
-                                    </div>
+                                    <span class="font-bold text-green-700">46%</span>
                                 </div>
-
-                                <!-- Hero Card: Date & Prayer Time (Compact) -->
-                                <div class="bg-brand-600 rounded-2xl p-4 text-white shadow-lg shadow-brand-500/30 mb-3 relative overflow-hidden group shrink-0">
-                                    <!-- Decorative Circles -->
-                                    <div class="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none"></div>
-                                    <div class="absolute bottom-0 left-0 w-20 h-20 bg-brand-500/20 rounded-full blur-lg -ml-4 -mb-4 pointer-events-none"></div>
-                                    
-                                    <div class="flex justify-between items-start mb-3 relative z-10">
-                                        <div>
-                                            <p class="text-[9px] text-brand-100 font-medium mb-0.5" data-i18n="app_today">Hari ini</p>
-                                            <h2 class="text-base font-bold leading-tight">5 Jumadil Akhir</h2>
-                                            <p class="text-[9px] text-brand-200">26 November 2025</p>
-                                        </div>
-                                        <div class="w-6 h-6 rounded-full bg-brand-500/40 flex items-center justify-center backdrop-blur-md border border-brand-400/30">
-                                            <i class="fa-solid fa-moon text-[10px]"></i>
-                                        </div>
+                                <!-- Item 2 -->
+                                <div class="flex items-center justify-between text-sm">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-3 h-3 rounded-full bg-blue-500"></div>
+                                        <span class="text-gray-700" data-i18n="alloc_operate">Energi agar terus berjalan</span>
                                     </div>
-
-                                    <!-- Prayer Time Box Compact -->
-                                    <div class="bg-brand-800/40 rounded-xl p-3 flex justify-between items-center backdrop-blur-md border border-brand-500/20">
-                                        <div>
-                                            <p class="text-[8px] text-brand-200 mb-0.5"><span data-i18n="app_next">Berikutnya:</span> <span class="text-white font-bold text-sm">Maghrib</span></p>
-                                             <p class="text-[9px] text-brand-100 mt-0 font-medium">dalam 2J 45m</p>
-                                        </div>
-                                        <div class="w-7 h-7 rounded-full border border-brand-200/50 flex items-center justify-center text-brand-100">
-                                            <i class="fa-regular fa-clock text-[10px]"></i>
-                                        </div>
-                                    </div>
+                                    <span class="font-bold text-blue-600">23%</span>
                                 </div>
-
-                                <!-- Refleksi Card (Compact) -->
-                                <div class="bg-white rounded-xl p-3 shadow-sm border border-slate-100 mb-3 relative shrink-0">
-                                     <div class="flex justify-between items-center mb-1">
-                                        <h4 class="font-bold text-slate-800 text-[10px] tracking-wide text-brand-600" data-i18n="app_reflection">Refleksi</h4>
-                                        <i class="fa-solid fa-book-open text-slate-300 text-[10px]"></i>
-                                     </div>
-                                     <p class="text-[10px] text-slate-600 leading-tight font-medium line-clamp-2" data-i18n="app_quote">
-                                         "Jika mengikuti standar orang lain saja bisa, kenapa kita tidak mengikuti standar Allah?"
-                                     </p>
-                                </div>
-
-                                <!-- Menu Grid (Compact & Full Fit) -->
-                                <div class="grid grid-cols-4 gap-y-3 gap-x-1 mb-2 flex-1 content-start">
-                                    <!-- Salat -->
-                                    <div class="flex flex-col items-center gap-1 group cursor-pointer">
-                                        <div class="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm shadow-sm group-hover:scale-105 transition">
-                                            <i class="fa-solid fa-mosque"></i>
-                                        </div>
-                                        <span class="text-[9px] font-semibold text-slate-600" data-i18n="menu_salat">Salat</span>
+                                <!-- Item 3 -->
+                                <div class="flex items-center justify-between text-sm">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                        <span class="text-gray-700" data-i18n="alloc_team">Hadiah bagi tim yang melayani</span>
                                     </div>
-                                     <!-- Quran -->
-                                    <div class="flex flex-col items-center gap-1 group cursor-pointer">
-                                        <div class="w-10 h-10 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-sm shadow-sm group-hover:scale-105 transition">
-                                            <i class="fa-solid fa-book-quran"></i>
-                                        </div>
-                                        <span class="text-[9px] font-semibold text-slate-600">Quran</span>
-                                    </div>
-                                    <!-- Hadits -->
-                                     <div class="flex flex-col items-center gap-1 group cursor-pointer">
-                                        <div class="w-10 h-10 rounded-2xl bg-orange-100 text-orange-600 flex items-center justify-center text-sm shadow-sm group-hover:scale-105 transition">
-                                            <i class="fa-solid fa-scroll"></i>
-                                        </div>
-                                        <span class="text-[9px] font-semibold text-slate-600" data-i18n="menu_hadits">Hadits</span>
-                                    </div>
-                                     <!-- Dzikir -->
-                                     <div class="flex flex-col items-center gap-1 group cursor-pointer">
-                                        <div class="w-10 h-10 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-sm shadow-sm group-hover:scale-105 transition">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </div>
-                                        <span class="text-[9px] font-semibold text-slate-600 text-center leading-tight" data-i18n="menu_dzikir">Dzikir</span>
-                                    </div>
-                                    
-                                     <!-- Sejarah -->
-                                     <div class="flex flex-col items-center gap-1 group cursor-pointer">
-                                        <div class="w-10 h-10 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-sm shadow-sm group-hover:scale-105 transition">
-                                            <i class="fa-solid fa-clock-rotate-left"></i>
-                                        </div>
-                                        <span class="text-[9px] font-semibold text-slate-600" data-i18n="menu_sejarah">Sejarah</span>
-                                    </div>
-                                     <!-- Biografi -->
-                                     <div class="flex flex-col items-center gap-1 group cursor-pointer">
-                                        <div class="w-10 h-10 rounded-2xl bg-cyan-100 text-cyan-600 flex items-center justify-center text-sm shadow-sm group-hover:scale-105 transition">
-                                            <i class="fa-solid fa-user"></i>
-                                        </div>
-                                        <span class="text-[9px] font-semibold text-slate-600" data-i18n="menu_biografi">Biografi</span>
-                                    </div>
-                                     <!-- Daily -->
-                                     <div class="flex flex-col items-center gap-1 group cursor-pointer">
-                                        <div class="w-10 h-10 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-sm shadow-sm group-hover:scale-105 transition">
-                                            <i class="fa-regular fa-calendar-check"></i>
-                                        </div>
-                                        <span class="text-[9px] font-semibold text-slate-600">Daily</span>
-                                    </div>
-                                     <!-- Wawasan -->
-                                     <div class="flex flex-col items-center gap-1 group cursor-pointer">
-                                        <div class="w-10 h-10 rounded-2xl bg-orange-100 text-orange-600 flex items-center justify-center text-sm shadow-sm group-hover:scale-105 transition">
-                                            <i class="fa-solid fa-graduation-cap"></i>
-                                        </div>
-                                        <span class="text-[9px] font-semibold text-slate-600" data-i18n="menu_wawasan">Wawasan</span>
-                                    </div>
+                                    <span class="font-bold text-yellow-600">31%</span>
                                 </div>
                             </div>
-
-                            <!-- Docked Bottom Nav (Not Floating) -->
-                            <div class="w-full bg-white border-t border-slate-100 h-14 flex justify-around items-center shrink-0 z-30 pb-1">
-                                <div class="flex flex-col items-center justify-center w-12 h-full text-brand-600 border-t-2 border-brand-600">
-                                     <i class="fa-solid fa-house text-sm mb-0.5"></i>
-                                     <span class="text-[9px] font-bold">Home</span>
-                                </div>
-                                <div class="flex flex-col items-center justify-center w-12 h-full text-slate-400 hover:text-brand-600 transition">
-                                     <i class="fa-regular fa-compass text-sm mb-0.5"></i>
-                                     <span class="text-[9px]">Qibla</span>
-                                </div>
-                                <div class="flex flex-col items-center justify-center w-12 h-full text-slate-400 hover:text-brand-600 transition">
-                                     <i class="fa-regular fa-bookmark text-sm mb-0.5"></i>
-                                     <span class="text-[9px]">Saved</span>
-                                </div>
-                                <div class="flex flex-col items-center justify-center w-12 h-full text-slate-400 hover:text-brand-600 transition">
-                                     <i class="fa-regular fa-user text-sm mb-0.5"></i>
-                                     <span class="text-[9px]">Profile</span>
-                                </div>
-                            </div>
-
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Empati Section -->
-    <section id="tentang" class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-            <h2 class="text-3xl font-bold text-slate-900 mb-6" data-i18n="emp_title">Pernahkah Anda Merasa...</h2>
-            <div class="grid md:grid-cols-3 gap-8 mt-10">
-                <div class="p-6 rounded-2xl bg-slate-50 hover:bg-brand-50 transition duration-300 group hover:shadow-lg border border-transparent hover:border-brand-100">
-                    <div class="text-4xl mb-4 grayscale group-hover:grayscale-0 transition">😔</div>
-                    <h3 class="text-lg font-bold text-slate-800 mb-2 group-hover:text-brand-700" data-i18n="emp_c1_title">Ingin Belajar tapi Malu</h3>
-                    <p class="text-sm text-slate-600" data-i18n="emp_c1_desc">Merasa sudah dewasa tapi belum paham dasar agama, dan malu untuk bertanya langsung?</p>
-                </div>
-                <div class="p-6 rounded-2xl bg-slate-50 hover:bg-brand-50 transition duration-300 group hover:shadow-lg border border-transparent hover:border-brand-100">
-                    <div class="text-4xl mb-4 grayscale group-hover:grayscale-0 transition">😕</div>
-                    <h3 class="text-lg font-bold text-slate-800 mb-2 group-hover:text-brand-700" data-i18n="emp_c2_title">Bingung Mulai Darimana</h3>
-                    <p class="text-sm text-slate-600" data-i18n="emp_c2_desc">Informasi di internet terlalu banyak dan simpang siur, membuat bingung harus mulai dari mana.</p>
-                </div>
-                <div class="p-6 rounded-2xl bg-slate-50 hover:bg-brand-50 transition duration-300 group hover:shadow-lg border border-transparent hover:border-brand-100">
-                    <div class="text-4xl mb-4 grayscale group-hover:grayscale-0 transition">😰</div>
-                    <h3 class="text-lg font-bold text-slate-800 mb-2 group-hover:text-brand-700" data-i18n="emp_c3_title">Takut Salah Sumber</h3>
-                    <p class="text-sm text-slate-600" data-i18n="emp_c3_desc">Khawatir belajar dari sumber yang tidak jelas atau menyimpang.</p>
-                </div>
-            </div>
-            <div class="mt-12 p-8 bg-brand-50 rounded-3xl border border-brand-100 relative overflow-hidden">
-                <div class="absolute -right-4 -top-4 text-9xl text-brand-100 opacity-20"><i class="fa-solid fa-quote-right"></i></div>
-                <p class="text-xl font-medium text-brand-800 relative z-10" data-i18n="emp_quote">
-                    "Tidak ada kata terlambat untuk kembali. PugarApp hadir untuk membimbing langkah pertamamu dengan lembut dan terarah."
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="fitur" class="py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-brand-600 font-bold tracking-wide uppercase text-sm mb-2" data-i18n="feat_tag">Fitur Unggulan</h2>
-                <h3 class="text-3xl lg:text-4xl font-extrabold text-slate-900" data-i18n="feat_title">One Stop Media Belajar Islam</h3>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Feature 1 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl hover:shadow-brand-500/10 transition-all duration-300 group border border-slate-100 hover:border-brand-100">
-                    <div class="w-14 h-14 bg-brand-100 text-brand-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition group-hover:bg-brand-600 group-hover:text-white">
-                        <i class="fa-solid fa-person-praying"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-slate-900 mb-3" data-i18n="feat_c1_title">Tata Cara Ibadah</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="feat_c1_desc">Panduan sholat, wudhu, tayamum, hingga jenazah dengan ilustrasi gambar dan video yang mudah diikuti.</p>
-                </div>
-
-                <!-- Feature 2 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl hover:shadow-brand-500/10 transition-all duration-300 group border border-slate-100 hover:border-brand-100">
-                    <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition group-hover:bg-orange-500 group-hover:text-white">
-                        <i class="fa-solid fa-scale-balanced"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-slate-900 mb-3" data-i18n="feat_c2_title">Fiqih Harian</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="feat_c2_desc">Jawaban atas masalah sehari-hari. Mulai dari hukum muamalah, thaharah, hingga adab keseharian.</p>
-                </div>
-
-                <!-- Feature 3 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl hover:shadow-brand-500/10 transition-all duration-300 group border border-slate-100 hover:border-brand-100">
-                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition group-hover:bg-blue-500 group-hover:text-white">
-                        <i class="fa-solid fa-landmark"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-slate-900 mb-3" data-i18n="feat_c3_title">Sejarah Islam</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="feat_c3_desc">Kisah perjalanan Nabi Muhammad SAW, Khulafaur Rasyidin, dan peradaban Islam yang membangkitkan iman.</p>
-                </div>
-
-                <!-- Feature 4 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl hover:shadow-brand-500/10 transition-all duration-300 group border border-slate-100 hover:border-brand-100">
-                    <div class="w-14 h-14 bg-rose-100 text-rose-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition group-hover:bg-rose-500 group-hover:text-white">
-                        <i class="fa-solid fa-book-journal-whills"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-slate-900 mb-3" data-i18n="feat_c4_title">Biografi Tokoh</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="feat_c4_desc">Mengenal para sahabat, imam madzhab, dan ulama besar untuk mengambil teladan dari kehidupan mereka.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Validation / Trust Section -->
-    <section id="validasi" class="py-20 bg-brand-900 text-white relative overflow-hidden">
-        <!-- Abstract Shapes -->
-        <div class="absolute top-0 right-0 opacity-10">
-            <i class="fa-solid fa-mosque text-[400px] text-white transform translate-x-1/4 -translate-y-1/4"></i>
-        </div>
-        <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-600 rounded-full blur-3xl opacity-20"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
-            <div class="md:w-1/2">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6" data-i18n="trust_title">Tenang, Konten Kami Terverifikasi</h2>
-                <p class="text-brand-100 text-lg leading-relaxed mb-8" data-i18n="trust_desc">
-                    Kami mengerti kekhawatiran Anda akan informasi yang salah. Oleh karena itu, seluruh materi di aplikasi <span class="font-bold text-white border-b-2 border-brand-400">PugarApp</span> telah divalidasi dan dikurasi secara ketat oleh tim asatidz dan tokoh agama yang berkompeten.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <div class="flex items-center gap-3 bg-brand-800/50 backdrop-blur-sm px-4 py-2 rounded-lg border border-brand-700">
-                        <i class="fa-solid fa-check-circle text-brand-400"></i>
-                        <span class="text-sm font-medium" data-i18n="trust_check1">Berdasarkan Al-Quran & Sunnah</span>
-                    </div>
-                    <div class="flex items-center gap-3 bg-brand-800/50 backdrop-blur-sm px-4 py-2 rounded-lg border border-brand-700">
-                        <i class="fa-solid fa-check-circle text-brand-400"></i>
-                        <span class="text-sm font-medium" data-i18n="trust_check2">Referensi Kitab Mu'tabar</span>
-                    </div>
-                </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center">
-                <div class="bg-white text-brand-900 p-8 rounded-2xl max-w-sm shadow-2xl transform rotate-2 hover:rotate-0 transition duration-500">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center overflow-hidden">
-                            <i class="fa-solid fa-user-tie text-slate-400 text-2xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold">Ustadz Hanif Al-Fatih, Lc.</h4>
-                            <p class="text-xs text-slate-500" data-i18n="trust_role">Dewan Penasehat Syariah</p>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <i class="fa-solid fa-quote-left text-brand-100 text-4xl absolute -top-2 -left-2 -z-10"></i>
-                        <p class="italic text-sm text-slate-700 relative z-10" data-i18n="trust_quote">
-                            "Aplikasi ini sangat saya rekomendasikan bagi saudara-saudara kita yang baru ingin mendalami Islam. Bahasanya ringan, namun isinya "daging" dan insyaAllah shahih."
+                        
+                        <p class="mt-6 text-xs text-center text-gray-500 italic" data-i18n="alloc_note">
+                            *Setiap dukungan dicatat dan dilaporkan secara transparan.
                         </p>
                     </div>
+
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Donation Section -->
-    <section id="donasi" class="py-24 bg-white">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-br from-slate-50 to-brand-50/50 border border-slate-200 rounded-[3rem] p-8 md:p-16 text-center shadow-lg relative overflow-hidden">
-                <!-- Decorative Circles -->
-                <div class="absolute -top-10 -left-10 w-40 h-40 bg-brand-200 rounded-full opacity-30 blur-3xl"></div>
-                <div class="absolute bottom-0 right-0 w-60 h-60 bg-purple-200 rounded-full opacity-30 blur-3xl"></div>
-
-                <div class="relative z-10">
-                    <span class="inline-block px-4 py-1.5 bg-yellow-100 text-yellow-700 rounded-full text-sm font-bold mb-6" data-i18n="don_tag">Investasi Akhirat</span>
-                    <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6" data-i18n="don_title">Dukung Dakwah Digital Kami</h2>
-                    <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto" data-i18n="don_desc">
-                        Aplikasi ini dikembangkan secara independen agar tetap gratis untuk semua umat. Dukungan Anda membantu kami menyewa server, membayar developer, dan memproduksi konten berkualitas.
-                    </p>
-
-                    <!-- LOCAL DONATION (INDONESIA) -->
-                    <div id="donation-local" class="grid md:grid-cols-2 gap-8 items-center max-w-3xl mx-auto text-left">
-                        <!-- QRIS Placeholder -->
-                        <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 flex flex-col items-center">
-                            <p class="text-sm font-bold text-slate-500 mb-4">Scan QRIS (Semua E-Wallet & Bank)</p>
-                            <!-- Placeholder QR Code using an empty div with styling -->
-                            <div class="w-48 h-48 bg-slate-900 rounded-lg flex items-center justify-center text-white mb-4 relative overflow-hidden group cursor-pointer">
-                                <i class="fa-solid fa-qrcode text-6xl group-hover:scale-110 transition duration-300"></i>
-                                <div class="absolute inset-0 bg-brand-900/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                                    <span class="text-xs font-bold text-center px-4 text-white">Ganti dengan gambar QRIS Anda</span>
-                                </div>
-                            </div>
-                            <p class="font-bold text-slate-800">PugarApp</p>
-                            <p class="text-xs text-slate-500">NMID: ID123456789</p>
-                        </div>
-
-                        <!-- Manual Transfer -->
-                        <div class="space-y-4">
-                            <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex items-center gap-4 hover:border-brand-200 transition">
-                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xs shadow-md">BCA</div>
-                                <div class="flex-1">
-                                    <p class="text-xs text-slate-500">Bank Central Asia</p>
-                                    <div class="flex items-center justify-between">
-                                        <p class="text-lg font-bold text-slate-800" id="rek-bca">123 456 7890</p>
-                                        <button onclick="copyToClipboard('1234567890')" class="text-brand-600 hover:text-brand-800 text-sm bg-brand-50 p-2 rounded-lg transition"><i class="fa-regular fa-copy"></i></button>
-                                    </div>
-                                    <p class="text-xs font-medium text-slate-600 mt-1">a.n PugarApp</p>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex items-center gap-4 hover:border-brand-200 transition">
-                                <div class="w-12 h-12 bg-emerald-600 rounded-lg flex items-center justify-center text-white font-bold text-xs shadow-md">BSI</div>
-                                <div class="flex-1">
-                                    <p class="text-xs text-slate-500">Bank Syariah Indonesia</p>
-                                    <div class="flex items-center justify-between">
-                                        <p class="text-lg font-bold text-slate-800" id="rek-bsi">987 654 3210</p>
-                                        <button onclick="copyToClipboard('9876543210')" class="text-brand-600 hover:text-brand-800 text-sm bg-brand-50 p-2 rounded-lg transition"><i class="fa-regular fa-copy"></i></button>
-                                    </div>
-                                    <p class="text-xs font-medium text-slate-600 mt-1">a.n PugarApp</p>
-                                </div>
+                <!-- KOLOM KANAN: Metode Donasi (Tetap) -->
+                <div class="flex flex-col gap-6">
+                    
+                    <!-- Local Donation (ID) -->
+                    <div id="donasi-id" class="w-full bg-gray-50 p-8 rounded-3xl border border-gray-100 shadow-lg text-center relative overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-green to-brand-blue"></div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Pugar Studio Sosial & Amal</h3>                 
+                        <div class="bg-white p-4 rounded-xl shadow-inner inline-block mb-6 mx-auto border border-gray-200">
+                            <div class="w-64 h-64 bg-gray-100 flex flex-col items-center justify-center rounded-lg text-gray-400">
+                                <!-- Placeholder Image -->
+                                <img src="assets/ceki.png" alt="QRIS Code" class="object-contain w-full h-full">
                             </div>
                         </div>
+                        <p class="text-xl font-bold text-gray-800 mt-2 mb-4">Atau hubungi kami</p>
+                        <!-- Kontainer Ikon -->
+                        <div class="flex justify-center gap-8">
+                            <!-- WhatsApp -->
+                            <a href="https://wa.me/6282297698772" target="_blank" class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center text-white hover:bg-green-600 transition shadow-lg shadow-green-200 hover:scale-110">
+                                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            </a>
+                            <!-- Email -->
+                            <a href="mailto:pugarstudio@example.com" class="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center text-white hover:bg-red-600 transition shadow-lg shadow-red-200 hover:scale-110"
+                                onclick="tryMailto(event, 'pugarstudio@example.com')">
+                                <i class="fa-solid fa-envelope text-2xl"></i>
+                            </a>
+                        </div>                    
                     </div>
 
-                    <!-- INTERNATIONAL DONATION (STRIPE & PAYPAL) -->
-                    <div id="donation-intl" class="hidden grid md:grid-cols-2 gap-8 items-center max-w-3xl mx-auto text-left">
-                        <!-- Stripe -->
-                        <a href="#" class="bg-white p-8 rounded-2xl shadow-md border border-slate-100 flex flex-col items-center hover:border-brand-200 transition group hover:-translate-y-1">
-                            <i class="fa-brands fa-stripe text-7xl text-slate-800 mb-6 group-hover:text-brand-600 transition"></i>
-                            <span class="font-bold text-xl text-slate-800 mb-2">Donate via Stripe</span>
-                            <span class="text-sm text-slate-500 text-center">Support us securely using your Credit Card or Debit Card.</span>
-                        </a>
-                        <!-- Paypal -->
-                        <a href="#" class="bg-white p-8 rounded-2xl shadow-md border border-slate-100 flex flex-col items-center hover:border-brand-200 transition group hover:-translate-y-1">
-                            <i class="fa-brands fa-paypal text-7xl text-blue-700 mb-6 group-hover:scale-110 transition"></i>
-                            <span class="font-bold text-xl text-slate-800 mb-2">Donate via PayPal</span>
-                            <span class="text-sm text-slate-500 text-center">Fast, safe and easy way to donate from anywhere in the world.</span>
-                        </a>
+                    <!-- Global Donation (EN) -->
+                    <div id="donasi-en" class="w-full bg-gray-50 p-8 rounded-3xl border border-gray-100 shadow-lg text-center relative overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-green to-brand-blue"></div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Pugar Studio</h3>                 
+                        <!-- Form Area -->
+                        <div class="mb-12">
+                            <style>
+                                .pp-MSQURBHJRXX6A {
+                                    text-align: center;
+                                    border: none;
+                                    border-radius: 0.5rem;
+                                    min-width: 16rem;
+                                    padding: 0 2rem;
+                                    height: 3.5rem;
+                                    font-weight: bold;
+                                    background-color: #FFD140;
+                                    color: #000000;
+                                    font-family: "Helvetica Neue", Arial, sans-serif;
+                                    font-size: 1.25rem;
+                                    line-height: 1.5rem;
+                                    cursor: pointer;
+                                    transition: all 0.2s ease;
+                                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+                                }
+                                .pp-MSQURBHJRXX6A:hover {
+                                    transform: translateY(-2px);
+                                    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                                }
+                            </style>
+                            <form action="https://www.paypal.com/ncp/payment/MSQURBHJRXX6A" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:1.25rem;">
+                                <input class="pp-MSQURBHJRXX6A" type="submit" value="Support Us" />
+                                <img src="https://www.paypalobjects.com/images/Debit_Credit.svg" alt="cards" style="height: 2.25rem;" />
+                            </form>
+                        </div>
+                        <p class="text-xl font-bold text-gray-800 mt-2 mb-4">Or Contact Us</p>
+                        <!-- Kontainer Ikon -->
+                        <div class="flex justify-center gap-8">
+                            <!-- WhatsApp -->
+                            <a href="https://wa.me/6282297698772" target="_blank" class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center text-white hover:bg-green-600 transition shadow-lg shadow-green-200 hover:scale-110">
+                                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            </a>
+                            <!-- Email -->
+                            <a href="mailto:pugarstudio@example.com" class="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center text-white hover:bg-red-600 transition shadow-lg shadow-red-200 hover:scale-110"
+                                onclick="tryMailto(event, 'pugarstudio@example.com')">
+                                <i class="fa-solid fa-envelope text-2xl"></i>
+                            </a>
+                        </div>                    
                     </div>
 
                 </div>
@@ -558,295 +636,363 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-300 py-12 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center gap-2 mb-4 text-white">
-                        <div class="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center text-sm">
-                            <i class="fa-solid fa-kaaba"></i>
-                        </div>
-                        <span class="font-bold text-2xl">PugarApp</span>
-                    </div>
-                    <p class="text-slate-400 text-sm leading-relaxed max-w-xs" data-i18n="footer_desc">
-                        Platform edukasi Islam digital yang ramah pemula. Kami percaya belajar agama adalah hak setiap muslim, tanpa terkecuali.
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div class="md:col-span-1">
+                    <a href="#" class="flex items-center gap-3 mb-4 text-white">
+                    <i class="fa-solid fa-leaf text-brand-green"></i>
+                    <span class="text-xl font-bold">Pugar<span class="text-brand-green">Studio</span></span>
+                    </a>
+                    <p class="text-sm leading-relaxed max-w-md mb-4" data-i18n="footer_desc">
+                    Sebuah inisiatif non-profit untuk menyatukan potensi pemuda, kemajuan teknologi, dan kearifan ekologi demi masa depan yang berkelanjutan.
                     </p>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold mb-4" data-i18n="footer_links">Tautan</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#fitur" class="hover:text-brand-400 transition" data-i18n="nav_features">Fitur</a></li>
-                        <li><a href="#validasi" class="hover:text-brand-400 transition" data-i18n="nav_validation">Validasi</a></li>
-                        <li><a href="#donasi" class="hover:text-brand-400 transition" data-i18n="nav_support">Donasi</a></li>
-                        <li><a href="#" class="hover:text-brand-400 transition" data-i18n="footer_privacy">Kebijakan Privasi</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold mb-4" data-i18n="footer_contact">Hubungi Kami</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li class="flex items-center gap-2 hover:text-white transition"><i class="fa-brands fa-whatsapp w-5"></i> +62 812-3456-7890</li>
-                        <li class="flex items-center gap-2 hover:text-white transition"><i class="fa-regular fa-envelope w-5"></i> salam@pugar.app</li>
-                        <li class="flex items-center gap-2 mt-4">
-                            <a href="#" class="w-8 h-8 bg-slate-800 rounded flex items-center justify-center hover:bg-brand-600 hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#" class="w-8 h-8 bg-slate-800 rounded flex items-center justify-center hover:bg-brand-600 hover:text-white transition"><i class="fa-brands fa-twitter"></i></a>
-                            <a href="#" class="w-8 h-8 bg-slate-800 rounded flex items-center justify-center hover:bg-brand-600 hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
-                        </li>
-                    </ul>
+                    <!-- Ikon Media Sosial -->
+                    <div class="flex space-x-3">
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-dark hover:text-white transition">
+                        <i class="fa-brands fa-x"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-blue hover:text-white transition">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-orange-500 hover:text-white transition">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-dark hover:text-white transition">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    </div>
                 </div>
             </div>
-            <div class="border-t border-slate-800 pt-8 text-center text-sm text-slate-500">
-                &copy; 2025 PugarApp. <span data-i18n="footer_credit">Dibuat dengan</span> <i class="fa-solid fa-heart text-rose-500 animate-pulse"></i>.
+            <div class="border-t border-gray-800 pt-8 text-center text-sm">
+                <p>&copy; 2025 Pugar Studio. <span data-i18n="footer_rights">Dilindungi Undang-Undang.</span></p>
+                <p class="mt-2 text-xs" data-i18n="footer_love">Dibuat dengan <i class="fa-solid fa-heart text-red-500 mx-1"></i> untuk generasi baru.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript Interactions -->
+    <!-- Logic Bahasa & Mobile Menu -->
     <script>
-        // --- TRANSLATION DATA ---
+        // Tab Switch Logic for Products
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-white', 'shadow-sm', 'text-brand-blue', 'text-brand-green', 'text-brand-earth', 'ring-1', 'ring-black/5');
+                btn.classList.add('text-gray-600', 'hover:bg-white');
+            });
+
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('text-gray-600', 'hover:bg-white');
+            activeBtn.classList.add('bg-white', 'shadow-sm', 'ring-1', 'ring-black/5');
+            
+            if(tabId === 'tab1') activeBtn.classList.add('text-brand-blue');
+            if(tabId === 'tab2') activeBtn.classList.add('text-brand-green');
+            if(tabId === 'tab3') activeBtn.classList.add('text-brand-earth');
+        }
+
+        // New Tab Switch Logic for Programs
+        function switchProg(tabId) {
+            // Content Toggle
+            document.querySelectorAll('.prog-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            
+            // Button Styling Toggle
+            document.querySelectorAll('.prog-btn').forEach(btn => {
+                // Reset to default inactive style
+                btn.classList.remove('bg-brand-green', 'text-white', 'shadow-lg', 'ring-2', 'ring-brand-green/20');
+                btn.classList.add('bg-white', 'hover:bg-gray-50', 'text-gray-600', 'border', 'border-gray-200');
+                
+                // Reset icon background
+                const iconContainer = btn.querySelector('div');
+                iconContainer.classList.remove('bg-white/20');
+                
+                // Restore colorful icon backgrounds based on index or logic (simplified for now to revert to generic)
+                // This part requires checking which button it is to restore specific colors if we want per-button colors
+                // For simplicity, we just reset the active text color
+            });
+
+            // Activate Selected Button
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('bg-white', 'hover:bg-gray-50', 'text-gray-600', 'border', 'border-gray-200');
+            
+            // Apply different colors based on which tab is active to match the theme
+            if(tabId === 'prog-tab1') { // Health (Green)
+                activeBtn.classList.add('bg-brand-green', 'text-white', 'shadow-lg', 'ring-2', 'ring-brand-green/20');
+            } else if(tabId === 'prog-tab2') { // Tech (Blue)
+                activeBtn.classList.add('bg-brand-blue', 'text-white', 'shadow-lg', 'ring-2', 'ring-brand-blue/20');
+            } else if(tabId === 'prog-tab3') { // Nature (Dark Green)
+                activeBtn.classList.add('bg-brand-dark', 'text-white', 'shadow-lg', 'ring-2', 'ring-brand-dark/20');
+            } else if(tabId === 'prog-tab4') { // Social (Orange)
+                activeBtn.classList.add('bg-orange-500', 'text-white', 'shadow-lg', 'ring-2', 'ring-orange-500/20');
+            }
+
+            // Update icon container for active state
+            const activeIconContainer = activeBtn.querySelector('div');
+            activeIconContainer.className = 'w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center mr-4 shrink-0';
+            
+            // Note: In a real prod environment, we'd store the original class string to restore it perfectly. 
+            // Here we are simply toggling the active class heavily.
+        }
+
+        // Data Terjemahan
         const translations = {
             id: {
-                nav_features: "Fitur",
-                nav_validation: "Validasi",
-                nav_about: "Tentang",
+                nav_home: "Beranda",
+                nav_vision: "Visi Kami",
+                nav_program: "Aksi Nyata",
                 nav_support: "Dukung Kami",
-                hero_tag: "Aplikasi Belajar Islam #1 Untuk Pemula",
-                hero_title: "Belajar Islam <br><span class='text-brand-600'>Tanpa Rasa Malu</span>, <br>Mulai dari Sini.",
-                hero_desc: "Bingung mulai dari mana? Merasa terlambat belajar? <strong>PugarApp</strong> hadir sebagai sahabat hijrahmu. Panduan ibadah lengkap, fiqih harian, hingga sejarah nabi dalam satu aplikasi.",
-                hero_free: "*Gratis sepenuhnya & bebas iklan mengganggu.",
-                
-                // Mockup App
-                app_today: "Hari ini",
-                app_next: "Berikutnya:",
-                app_reflection: "Refleksi",
-                app_quote: "\"Jika mengikuti standar orang lain saja bisa, kenapa kita tidak mengikuti standar Allah?\"",
-                menu_salat: "Salat",
-                menu_hadits: "Hadits",
-                menu_dzikir: "Dzikir",
-                menu_sejarah: "Sejarah",
-                menu_biografi: "Biografi",
-                menu_wawasan: "Wawasan",
-
-                // Sections
-                emp_title: "Pernahkah Anda Merasa...",
-                emp_c1_title: "Ingin Belajar tapi Malu",
-                emp_c1_desc: "Merasa sudah dewasa tapi belum paham dasar agama, dan malu untuk bertanya langsung?",
-                emp_c2_title: "Bingung Mulai Darimana",
-                emp_c2_desc: "Informasi di internet terlalu banyak dan simpang siur, membuat bingung harus mulai dari mana.",
-                emp_c3_title: "Takut Salah Sumber",
-                emp_c3_desc: "Khawatir belajar dari sumber yang tidak jelas atau menyimpang.",
-                emp_quote: "\"Tidak ada kata terlambat untuk kembali. PugarApp hadir untuk membimbing langkah pertamamu dengan lembut dan terarah.\"",
-
-                feat_tag: "Fitur Unggulan",
-                feat_title: "One Stop Media Belajar Islam",
-                feat_c1_title: "Tata Cara Ibadah",
-                feat_c1_desc: "Panduan sholat, wudhu, tayamum, hingga jenazah dengan ilustrasi gambar dan video yang mudah diikuti.",
-                feat_c2_title: "Fiqih Harian",
-                feat_c2_desc: "Jawaban atas masalah sehari-hari. Mulai dari hukum muamalah, thaharah, hingga adab keseharian.",
-                feat_c3_title: "Sejarah Islam",
-                feat_c3_desc: "Kisah perjalanan Nabi Muhammad SAW, Khulafaur Rasyidin, dan peradaban Islam yang membangkitkan iman.",
-                feat_c4_title: "Biografi Tokoh",
-                feat_c4_desc: "Mengenal para sahabat, imam madzhab, dan ulama besar untuk mengambil teladan dari kehidupan mereka.",
-
-                trust_title: "Tenang, Konten Kami Terverifikasi",
-                trust_desc: "Kami mengerti kekhawatiran Anda akan informasi yang salah. Oleh karena itu, seluruh materi di aplikasi <span class='font-bold text-white border-b-2 border-brand-400'>PugarApp</span> telah divalidasi dan dikurasi secara ketat oleh tim asatidz dan tokoh agama yang berkompeten.",
-                trust_check1: "Berdasarkan Al-Quran & Sunnah",
-                trust_check2: "Referensi Kitab Mu'tabar",
-                trust_role: "Dewan Penasehat Syariah",
-                trust_quote: "\"Aplikasi ini sangat saya rekomendasikan bagi saudara-saudara kita yang baru ingin mendalami Islam. Bahasanya ringan, namun isinya \"daging\" dan insyaAllah shahih.\"",
-
-                don_tag: "Investasi Akhirat",
-                don_title: "Dukung Dakwah Digital Kami",
-                don_desc: "Aplikasi ini dikembangkan secara independen agar tetap gratis untuk semua umat. Dukungan Anda membantu kami menyewa server, membayar developer, dan memproduksi konten berkualitas.",
-                
-                footer_desc: "Platform edukasi Islam digital yang ramah pemula. Kami percaya belajar agama adalah hak setiap muslim, tanpa terkecuali.",
-                footer_links: "Tautan",
-                footer_privacy: "Kebijakan Privasi",
-                footer_contact: "Hubungi Kami",
-                footer_credit: "Dibuat dengan"
+                nav_products: "Karya Digital",
+                hero_badge: "🌱 Membangun Masa Depan Lestari",
+                hero_title: `Harmoni Antara Jiwa, Raga,<br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">Teknologi & Alam</span>`,
+                hero_desc: "Wadah bagi generasi muda untuk tumbuh sehat jasmani, rohani dan mental — memanfaatkan teknologi secara bijak dan kembali merawat bumi.",
+                hero_btn_program: "Lihat Program",
+                hero_btn_visi: "Pelajari Visi Kami",
+                visi_title: "Pilar Pergerakan",
+                visi_desc: "Kami percaya keseimbangan adalah kunci. Gerakan ini berdiri di atas empat fondasi utama untuk menciptakan manusia yang utuh.",
+                pillar_1_title: "Kesehatan Holistik",
+                pillar_1_desc: "Membangun keseimbangan raga yang bugar, mental yang tangguh, dan jiwa yang tenang sebagai fondasi kehidupan yang utuh.",
+                pillar_2_title: "Sahabat Alam",
+                pillar_2_desc: "Menanamkan kecintaan pada lingkungan serta melatih ketangguhan dan kemandirian hidup melalui interaksi nyata dengan alam.",
+                pillar_3_title: "Tanggap Teknologi",
+                pillar_3_desc: "Mencetak generasi yang adaptif, mengoptimalkan teknologi secara bijak, serta mampu berinovasi .",
+                pillar_4_title: "Harmoni Sosial",
+                pillar_4_desc: "Memupuk rasa empati dan kesadaran akan hak serta kewajiban demi terciptanya kehidupan bermasyarakat yang rukun.",
+                prog_badge: "Aksi Nyata",
+                prog_title: "Pengembangan Keterampilan Dasar",
+                tag_personal: "GEMAS",
+                tag_social: "POPO",
+                tag_tech: "GETEK",
+                tag_nature: "LOTEC",
+                prog_1_title: "GeMaS - Gerakan Remaja Sehat",
+                prog_1_desc: "Kita semua mendambakan generasi penerus yang tangguh, bukan? Lewat program ini, kami tidak hanya menempa fisik mereka agar bugar, tetapi juga merawat kesehatan mental dan kedalaman spiritualnya. Kami ingin memastikan setiap anak tumbuh dengan jiwa yang tenang dalam raga yang kuat, siap menghadapi tantangan zaman dengan kewarasan yang utuh.",
+                prog_2_title: "POPO - Pemimpin Oke, Pengikut Oke",
+                prog_2_desc: "Hidup rukun di tengah masyarakat modern adalah tantangan tersendiri. Di sini, kami menanamkan kesadaran sosial kepada remaja: memahami hak diri sendiri sembari menghormati kewajiban terhadap orang lain. Tujuannya adalah menciptakan harmoni, di mana mereka bisa menjadi warga yang santun, peduli, dan membawa dampak positif bagi lingkungannya.",
+                prog_3_title: "GeTek - Genggam Teknologi",
+                prog_3_desc: "Teknologi adalah kenyataan yang tak terhindarkan. Tugas kami memastikan remaja tidak ‘tenggelam’, melainkan mampu berenang memanfaatkannya. Kami ajarkan mereka cara mengoptimalkan teknologi agar hidup lebih produktif dan efisien. Dan khusus bagi mereka yang memiliki bakat lebih, kami sediakan ruang inkubasi untuk berkreasi melahirkan inovasi yang nyata.",
+                prog_4_title: "LoTec - Low Technology",
+                prog_4_desc: "Namun, kami juga sadar bahwa ketangguhan sejati diuji saat fasilitas tiada. Program ini adalah penyeimbang; kami melatih kemandirian dan keterampilan dasar kehidupan (life skills). Agar kelak, dalam situasi minim teknologi sekalipun, anak-anak kita tidak menjadi lumpuh, melainkan tetap mampu bertahan hidup dan berdaya guna.",
+                prod_badge: "Karya Digital",
+                prod_title: "Pendamping digital remaja",
+                prod_1_name: "SahabatCurhat AI",
+                prod_1_detail: "Menyediakan dukungan emosional yang selalu tersedia, pribadi, terpersonalisasi, dan dengan filter keamanan tinggi. Sebuah jangkar penting dalam menavigasi kesejahteraan mental mereka.",
+                prod_2_name: "Game Simulasi",
+                prod_2_detail: "Lingkungan yang aman dan bebas risiko bagi remaja untuk menguji coba pilihan hidup yang penting dan membangun kepercayaan diri dalam kemampuan mengambil keputusan.",
+                prod_3_name: "GrowthTracker",
+                prod_3_detail: "Aplikasi yang dirancang untuk memberdayakan dan membekali remaja dengan keterampilan esensial: kesadaran diri (self-awareness), penguasaan interpersonal, dan manajemen hidup.",
+                quote_text: `"Pahami dirimu, orang lain, dan dunia di sekitarmu. Lalu, pelajari cara menggunakan teknologi dengan bijak. Dengan begitu, hidup jadi lebih tenang, mudah, dan damai."`,
+                quote_role: "Inisiator Pugar Studio",
+                donate_badge: "Mari Berbagi",
+                donate_title: "Dukung Langkah Pertama Kami",
+                donate_desc: "Kontribusi Anda menjadi bahan bakar bagi kami untuk terus menanam kebaikan bagi generasi muda.",
+                goal_label: "Menuju langkah pertama kami",
+                goal_nominal: "Rp. 0",
+                target_label: "dari",
+                target_nominal: "Rp. 200.000.000",
+                goal_reached: "Tercapai",
+                goal_donors: "Donatur",
+                alloc_titile: "Ke mana Dukungan Anda Mengalir?",
+                alloc_equip: "Teknologi untuk mencipta",
+                alloc_operate: "Energi agar tetap menyala",
+                alloc_transport: "Jarak yang akan ditempuh",
+                alloc_team: "Hadiah bagi tim yang melayani",
+                alloc_note: "Setiap dukungan dicatat dan dilaporkan secara transparan.",
+                contact_title: "Hubungi Kami",
+                form_btn: "Kirim Pesan",
+                footer_desc: "Sebuah inisiatif non-profit untuk menyatukan potensi pemuda, kemajuan teknologi, dan kearifan ekologi demi masa depan yang berkelanjutan.",
+                footer_rights: "Dilindungi Undang-Undang.",
+                footer_love: `Dibuat dengan <i class="fa-solid fa-heart text-red-500 mx-1"></i> untuk Generasi Baru.`
             },
             en: {
-                nav_features: "Features",
-                nav_validation: "Validation",
-                nav_about: "About",
+                nav_home: "Home",
+                nav_vision: "Our Vision",
+                nav_program: "Real Action",
                 nav_support: "Support Us",
-                hero_tag: "No. 1 Islamic Learning App for Beginners",
-                hero_title: "Learn Islam <br><span class='text-brand-600'>Without Shame</span>, <br>Start Right Here.",
-                hero_desc: "Confused where to start? Feeling late to learn? <strong>PugarApp</strong> is here as your hijrah companion. Complete worship guides, daily fiqh, and prophetic history in one app.",
-                hero_free: "*Completely free & no annoying ads.",
-
-                // Mockup App
-                app_today: "Today",
-                app_next: "Next Prayer:",
-                app_reflection: "Reflection",
-                app_quote: "\"If we can follow other people's standards, why can't we follow Allah's standards?\"",
-                menu_salat: "Prayer",
-                menu_hadits: "Hadith",
-                menu_dzikir: "Dhikr",
-                menu_sejarah: "History",
-                menu_biografi: "Biography",
-                menu_wawasan: "Insight",
-
-                // Sections
-                emp_title: "Have You Ever Felt...",
-                emp_c1_title: "Want to Learn but Shy",
-                emp_c1_desc: "Feel like you're an adult but don't understand religious basics, and shy to ask directly?",
-                emp_c2_title: "Confused Where to Start",
-                emp_c2_desc: "Too much information on the internet is confusing, making it hard to know where to begin.",
-                emp_c3_title: "Afraid of Wrong Sources",
-                emp_c3_desc: "Worried about learning from unclear or deviant sources.",
-                emp_quote: "\"It's never too late to return. PugarApp is here to guide your first steps gently and with direction.\"",
-
-                feat_tag: "Key Features",
-                feat_title: "One Stop Islamic Learning Media",
-                feat_c1_title: "Worship Guides",
-                feat_c1_desc: "Guides for prayer, wudu, tayammum, to funeral rites with easy-to-follow illustrations and videos.",
-                feat_c2_title: "Daily Fiqh",
-                feat_c2_desc: "Answers to daily problems. From transactions, purification, to daily manners.",
-                feat_c3_title: "Islamic History",
-                feat_c3_desc: "Stories of Prophet Muhammad SAW, the Rashidun Caliphs, and Islamic civilization that boost faith.",
-                feat_c4_title: "Biographies",
-                feat_c4_desc: "Get to know the companions, madhhab imams, and great scholars to take examples from their lives.",
-
-                trust_title: "Rest Assured, Our Content is Verified",
-                trust_desc: "We understand your concern about misinformation. Therefore, all material in the <span class='font-bold text-white border-b-2 border-brand-400'>PugarApp</span> app has been strictly validated and curated by competent scholars.",
-                trust_check1: "Based on Quran & Sunnah",
-                trust_check2: "Trusted Book References",
-                trust_role: "Sharia Advisory Board",
-                trust_quote: "\"I highly recommend this application for our brothers and sisters who want to deepen their Islam. The language is light, but the content is substantial and insyaAllah authentic.\"",
-
-                don_tag: "Invest for Hereafter",
-                don_title: "Support Our Digital Da'wah",
-                don_desc: "This app is developed independently to remain free for everyone. Your support helps us rent servers, pay developers, and produce quality content.",
-
-                footer_desc: "Digital Islamic education platform that is beginner-friendly. We believe learning religion is the right of every Muslim, without exception.",
-                footer_links: "Links",
-                footer_privacy: "Privacy Policy",
-                footer_contact: "Contact Us",
-                footer_credit: "Made with"
+                nav_products: "Digital Project",
+                hero_badge: "🌱 Building a Sustainable Future",
+                hero_title: `Harmony Between Body, Soul,<br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">Technology & Nature</span>`,
+                hero_desc: "A platform for youth to grow physically, spiiritual and mentally healthy — use technology wisely, and return to caring for the earth.",
+                hero_btn_program: "View Programs",
+                hero_btn_visi: "Learn Our Vision",
+                visi_title: "Our Pillars",
+                visi_desc: "We believe balance is key. This movement stands on four main foundations to create complete human beings.",
+                pillar_1_title: "Holistic Wellness",
+                pillar_1_desc: "Cultivating a balance of physical fitness, mental resilience, and spiritual serenity as the foundation for a wholesome life.",
+                pillar_2_title: "Nature's Ally",
+                pillar_2_desc: "Instilling a love for the environment while forging resilience and self-reliance through hands-on interaction with nature.",
+                pillar_3_title: "Tech Savvy",
+                pillar_3_desc: "Empowering an adaptive generation to optimize technology wisely and drive meaningful innovation.",
+                pillar_4_title: "Social Harmony",
+                pillar_4_desc: "Nurturing empathy and civic awareness—balancing rights and duties—to foster a harmonious community.",
+                prog_badge: "Real Action",
+                prog_title: "Core Skills Developmnet",
+                tag_personal: "GEMAS",
+                tag_social: "POPO",
+                tag_tech: "GETEK",
+                tag_nature: "LOTEC",
+                prog_1_title: "GeMaS - Healthy Youth Movement",
+                prog_1_desc: "We all envision a resilient future generation. Through this program, we go beyond physical fitness to nurture mental strength and spiritual depth. We ensure every child grows with a serene soul in a strong body, ready to face the world's challenges with stability and complete sanity.",
+                prog_2_title: "POPO - Great Leaders, Great Followers",
+                prog_2_desc: "Living in harmony is a modern challenge. Here, we instill social awareness in youth: understanding personal rights while respecting obligations to others. Our goal is to create harmony, molding polite, caring citizens who bring a positive impact to their surroundings.",
+                prog_3_title: "GeTek - Tech Mastery",
+                prog_3_desc: "Technology is an inevitable reality. Our mission is to ensure youth don't 'drown' in it, but learn to 'swim' and leverage it. We teach them to optimize tech for productivity and efficiency. For those with exceptional talent, we provide an incubation space to create real-world innovations.",
+                prog_4_title: "LoTec - Low Technology",
+                prog_4_desc: "True resilience is tested when facilities are scarce. This program acts as a counterbalance; we train independence and essential life skills. So even in low-tech situations, our children won't be helpless—they will remain capable, adaptable, and self-reliant.",
+                prod_badge: "Digital Project",
+                prod_title: "Youth Digital Companion",
+                prod_1_name: "Confidant AI",
+                prod_1_detail: "Providing always-available, private, personalized emotional support, and high safety filter — a critical anchor point for navigating their mental well-being.",
+                prod_2_name: "Simulation Game",
+                prod_2_detail: "A safe, risk-free environment for teens to test-drive pivotal life choices and build confidence in their decision-making capabilities.",
+                prod_3_name: "GrowthTracker",
+                prod_3_detail: "App designed to empower and equip teens with essential skills: self-awareness, interpersonal mastery, and life management.",
+                quote_text: "Understand yourself, others, and the world around you. Then, learn to use technology wisely. That’s how life becomes calmer, easier, and more peaceful.",
+                quote_role: "Pugar Studio Initiator",
+                donate_badge: "Share The Care",
+                donate_title: "Support Our First Steps",
+                donate_desc: "Your contribution fuels us to continue planting kindness for the younger generation.",
+                goal_label: "Toward Our First Step",
+                goal_nominal: "$0",
+                target_label: "of",
+                target_nominal: "$12,000",
+                goal_reached: "Goal Reached",
+                goal_donors: "Donors",
+                alloc_title: "Where Your Support Flows",
+                alloc_equip: "Tools to serve well",
+                alloc_operate: "Keeping our space open",
+                alloc_transport: "Traveling to those Who need us",
+                alloc_team: "Caring for the team that cares",
+                alloc_note: "We honor your trust by tracking every contribution—transparently and with care.",
+                contact_title: "Contact Us",
+                form_btn: "Send Message",
+                footer_desc: "A non-profit initiative to unite youth potential, technological advancement, and ecological wisdom for a sustainable future.",
+                footer_rights: "All Rights Reserved.",
+                footer_love: `Made with <i class="fa-solid fa-heart text-red-500 mx-1"></i> for Next-Gen.`
             }
         };
 
-        // --- GLOBAL VARIABLES ---
-        let currentLang = 'id'; // Default
+        let currentLang = 'id';
 
-        // --- LOCALIZATION LOGIC ---
-        function setLanguage(lang) {
+        function updateContent(lang) {
             currentLang = lang;
-            
-            // 1. Apply Text Translations
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
                 if (translations[lang][key]) {
-                    element.innerHTML = translations[lang][key];
+                    el.innerHTML = translations[lang][key];
                 }
             });
 
-            // 2. Toggle Donation Section
-            const donationLocal = document.getElementById('donation-local');
-            const donationIntl = document.getElementById('donation-intl');
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                el.placeholder = translations[lang][key];
+                }
+            });
 
-            if (lang === 'id') {
-                donationLocal.classList.remove('hidden');
-                donationIntl.classList.add('hidden');
-                donationIntl.style.display = 'none'; // Force hide if grid was applied
-            } else {
-                donationLocal.classList.add('hidden');
-                donationIntl.classList.remove('hidden');
-                donationIntl.style.display = 'grid'; // Maintain grid layout
-            }
+            // Update indikator bahasa
+            document.getElementById('current-lang-display').textContent = lang.toUpperCase();
+            document.getElementById('current-lang-display-mobile').textContent = lang.toUpperCase();
 
-            // 3. Update Toggle UI Styles
-            updateLanguageUI(lang);
-        }
-
-        function updateLanguageUI(lang) {
-            // Desktop
-            const btnId = document.getElementById('btn-id');
-            const btnEn = document.getElementById('btn-en');
-            
-            if (lang === 'id') {
-                btnId.className = "text-sm font-bold text-brand-600 transition";
-                btnEn.className = "text-sm font-medium text-slate-400 hover:text-brand-600 transition";
-            } else {
-                btnId.className = "text-sm font-medium text-slate-400 hover:text-brand-600 transition";
-                btnEn.className = "text-sm font-bold text-brand-600 transition";
-            }
-
-            // Mobile
-            document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
-                if(btn.dataset.lang === lang) {
-                    btn.classList.add('text-brand-600', 'font-bold');
-                    btn.classList.remove('text-slate-500', 'font-medium');
+            const donationLocal = document.getElementById('donasi-id');
+            const donationIntl = document.getElementById('donasi-en');
+            if (donationLocal && donationIntl) {
+                if (lang === 'id') {
+                donationLocal.style.display = 'block';
+                donationIntl.style.display = 'none';
                 } else {
-                    btn.classList.remove('text-brand-600', 'font-bold');
-                    btn.classList.add('text-slate-500', 'font-medium');
+                donationLocal.style.display = 'none';
+                donationIntl.style.display = 'block';
                 }
-            });
+            }
         }
 
-        function initLocalization() {
-            // Check User Timezone for default
-            const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-            console.log("User Timezone:", userTimeZone);
-
-            // List of Indonesian Timezones (Main cities/regions)
-            const indoCities = ['Jakarta', 'Pontianak', 'Makassar', 'Ujung_Pandang', 'Jayapura'];
-            const isIndo = indoCities.some(city => userTimeZone.includes(city));
-
-            // Set initial language
-            setLanguage(isIndo ? 'id' : 'en');
+        function toggleLanguage() {
+            const newLang = currentLang === 'id' ? 'en' : 'id';
+            updateContent(newLang);
         }
 
-        // Initialize on Load
-        document.addEventListener('DOMContentLoaded', initLocalization);
+        function tryMailto(event, email) {
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
+        const mailtoUrl = `mailto:${email}`;
 
-        // --- EXISTING UI LOGIC ---
+        // Coba buka mailto
+        const newTab = window.open(mailtoUrl, '_blank');
+        
+        // Fallback ke Gmail setelah 800ms jika mailto gagal
+        setTimeout(() => {
+            if (newTab && !newTab.closed) {
+            try {
+                newTab.location.href = gmailUrl;
+            } catch (e) {
+                window.open(gmailUrl, '_blank');
+            }
+            } else {
+            window.open(gmailUrl, '_blank');
+            }
+        }, 800);
+        }
 
-        // Mobile Menu Toggle
+        // Deteksi Bahasa Berdasarkan Zona Waktu saat load
+        window.addEventListener('DOMContentLoaded', () => {
+            // Mendapatkan zona waktu pengguna (contoh: "Asia/Jakarta")
+            const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            
+            // Daftar zona waktu umum di Indonesia
+            const indoZones = [
+                "Asia/Jakarta",
+                "Asia/Pontianak", 
+                "Asia/Makassar",
+                "Asia/Ujung_Pandang",
+                "Asia/Jayapura"
+            ];
+
+            // Cek apakah zona waktu pengguna mengandung kata kunci kota besar di Indonesia atau ada di list
+            const isIndonesia = indoZones.some(zone => timeZone.includes(zone)) || timeZone.includes("Jakarta");
+
+            if (isIndonesia) {
+                updateContent('id');
+            } else {
+                updateContent('en');
+            }
+        });
+
+        // Mobile Menu Logic
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
+        const navbar = document.getElementById('navbar');
 
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
         });
 
-        // Close menu when clicking a link
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
-        });
-
-        // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 10) {
+            if (window.scrollY > 50) {
                 navbar.classList.add('shadow-md');
+                navbar.classList.replace('bg-white/90', 'bg-white/95');
             } else {
                 navbar.classList.remove('shadow-md');
+                navbar.classList.replace('bg-white/95', 'bg-white/90');
             }
         });
 
-        // Copy to Clipboard Function
-        function copyToClipboard(text) {
-            // Fallback for clipboard API if needed, but modern browsers support this
-            if (navigator.clipboard && window.isSecureContext) {
-                 navigator.clipboard.writeText(text).then(() => {
-                    alert('Nomor rekening berhasil disalin!');
-                }).catch(err => {
-                    console.error('Gagal menyalin: ', err);
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                menu.classList.add('hidden');
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
-            } else {
-                // Fallback for older browsers or non-secure context
-                let textArea = document.createElement("textarea");
-                textArea.value = text;
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand('Copy');
-                textArea.remove();
-                alert('Nomor rekening berhasil disalin!');
-            }
-        }
+            });
+        });
     </script>
 </body>
 </html>
