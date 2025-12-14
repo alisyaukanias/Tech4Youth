@@ -40,7 +40,7 @@
         .hero-bg {
             background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/alli.png');
             background-size: cover;
-            background-position: center;
+            background-position: center top;
             background-attachment: fixed;
         }
         .hover-card {
@@ -78,7 +78,7 @@
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Logo -->
             <a href="#" class="flex items-center gap-2 group">
-                <div class="w-10 h-10 bg-gradient-to-br from-brand-green to-brand-blue rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:rotate-12 transition-transform">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:rotate-12 transition-transform">
                     <img src="assets/iconi.png">
                 </div>
                 <span class="text-xl font-bold text-gray-800 tracking-tight">Pugar<span class="text-brand-green">Studio</span></span>
@@ -453,109 +453,8 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-i18n="donate_title">Dukung Langkah Kecil Kami</h2>
                 <p class="text-gray-600 text-lg" data-i18n="donate_desc">Kontribusi Anda menjadi bahan bakar bagi kami untuk terus menanam kebaikan, baik berupa pohon, bibit tanaman, maupun ilmu pengetahuan bagi generasi muda.</p>
             </div>
-
-            <!-- Grid Container: Left (Goal & Allocation) & Right (Donation Methods) -->
-            <!-- PERUBAHAN DI SINI: items-start diubah menjadi items-center agar vertikal rata tengah -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center max-w-6xl mx-auto">
-                
-                <!-- KOLOM KIRI: Visualisasi Kebutuhan & Pie Chart -->
-                <div class="flex flex-col gap-6">
-                    
-                    <!-- 1. BLOK KEBUTUHAN DANA (Fundraising Goal) -->
-                    <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-lg relative overflow-hidden">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-end mb-4 gap-2">
-                            <div>
-                                <h3 class="text-gray-500 text-sm font-semibold tracking-wide" data-i18n="goal_label">Menuju Langkah Pertama Kami</h3>
-                                <div class="text-3xl font-bold text-brand-green mt-1" data-i18n="goal_nominal">Rp 0</div>
-                            </div>
-                            <div class="text-left md:text-right">
-                                <span class="text-xs text-gray-400 block" data-i18n="target_label">dari target</span>
-                                <span class="text-gray-700 font-bold" data-i18n="target_nominal">Rp 200.000.000</span>
-                            </div>
-                        </div>
-
-                        <!-- Main Progress Bar -->
-                        <div class="w-full bg-gray-100 rounded-full h-4 mb-4 overflow-hidden">
-                            <div class="bg-gradient-to-r from-brand-green to-green-400 h-4 rounded-full shadow-md" style="width: 0%"></div>
-                        </div>
-
-                        <!-- Stats Grid -->
-                        <div class="grid grid-cols-2 gap-4 border-t border-gray-100 pt-4 text-center">
-                            <div>
-                                <span class="block text-xl font-bold text-gray-800">0%</span>
-                                <span class="text-xs text-gray-500" data-i18n="goal_reached">Tercapai</span>
-                            </div>
-                            <div class="border-l border-gray-100">
-                                <span class="block text-xl font-bold text-gray-800">0</span>
-                                <span class="text-xs text-gray-500" data-i18n="goal_donors">Donatur</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2. BLOK ALOKASI DANA (Pie Chart) -->
-                    <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 shadow-lg relative overflow-hidden">
-                        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-blue to-brand-green"></div>
-                        
-                        <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-                            <i class="fa-solid fa-chart-pie text-brand-green"></i>
-                            <span data-i18n="alloc_title">Ke Mana Dukungan Anda Mengalir?</span>
-                        </h3>
-
-                        <div class="flex flex-col md:flex-row items-center gap-8">
-                            <!-- Pie Chart Circle (CSS Conic Gradient) -->
-                            <div class="relative w-40 h-40 flex-shrink-0">
-                                <div class="w-full h-full rounded-full shadow-inner" 
-                                     style="background: conic-gradient(
-                                        #16a34a 0% 46%, 
-                                        #3b82f6 46% 69%, 
-                                        #eab308 69% 100%
-                                     );">
-                                </div>
-                                <!-- Inner White Circle for Donut Chart effect (Optional) -->
-                                <div class="absolute inset-0 m-auto w-24 h-24 bg-gray-50 rounded-full flex items-center justify-center shadow-sm">
-                                    <span class="text-xs font-bold text-gray-400">100%</span>
-                                </div>
-                            </div>
-
-                            <!-- Legend -->
-                            <div class="flex-1 w-full space-y-3">
-                                <!-- Item 1 -->
-                                <div class="flex items-center justify-between text-sm">
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-3 h-3 rounded-full bg-green-600"></div>
-                                        <span class="text-gray-700" data-i18n="alloc_equip">Teknologi untuk mencipta</span>
-                                    </div>
-                                    <span class="font-bold text-green-700">46%</span>
-                                </div>
-                                <!-- Item 2 -->
-                                <div class="flex items-center justify-between text-sm">
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-3 h-3 rounded-full bg-blue-500"></div>
-                                        <span class="text-gray-700" data-i18n="alloc_operate">Energi agar terus berjalan</span>
-                                    </div>
-                                    <span class="font-bold text-blue-600">23%</span>
-                                </div>
-                                <!-- Item 3 -->
-                                <div class="flex items-center justify-between text-sm">
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                                        <span class="text-gray-700" data-i18n="alloc_team">Hadiah bagi tim yang melayani</span>
-                                    </div>
-                                    <span class="font-bold text-yellow-600">31%</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <p class="mt-6 text-xs text-center text-gray-500 italic" data-i18n="alloc_note">
-                            *Setiap dukungan dicatat dan dilaporkan secara transparan.
-                        </p>
-                    </div>
-
-                </div>
-
-                <!-- KOLOM KANAN: Metode Donasi (Tetap) -->
-                <div class="flex flex-col gap-6">
-                    
+                <!-- KOLOM Metode Donasi -->
+                <div class="flex flex-col gap-6 max-w-xl mx-auto">                    
                     <!-- Local Donation (ID) -->
                     <div id="donasi-id" class="w-full bg-gray-50 p-8 rounded-3xl border border-gray-100 shadow-lg text-center relative overflow-hidden group hover:shadow-xl transition-shadow duration-300">
                         <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-green to-brand-blue"></div>
@@ -568,23 +467,21 @@
                         </div>
                         <p class="text-xl font-bold text-gray-800 mt-2 mb-4">Atau hubungi kami</p>
                         <!-- Kontainer Ikon -->
-                        <div class="flex justify-center gap-8">
+                        <div class="flex justify-center gap-4">
                             <!-- WhatsApp -->
-                            <a href="https://wa.me/6282297698772" target="_blank" class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center text-white hover:bg-green-600 transition shadow-lg shadow-green-200 hover:scale-110">
-                                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <a href="https://wa.me/6282297698772" target="_blank" class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white hover:bg-green-600 transition shadow-lg shadow-green-200 hover:scale-110">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
                             </a>
                             <!-- Email -->
-                            <a href="mailto:deddyhermanhidayat@gmail.com" class="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center text-white hover:bg-red-600 transition shadow-lg shadow-red-200 hover:scale-110"
-                                onclick="tryMailto(event, 'deddyhermanhidayat@gmail.com')">
-                                <i class="fa-solid fa-envelope text-2xl"></i>
+                            <a href="mailto:pugarstudio@example.com" class="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center text-white hover:bg-red-600 transition shadow-lg shadow-red-200 hover:scale-110"
+                                onclick="tryMailto(event, 'pugarstudio@example.com')">
+                                <i class="fa-solid fa-envelope text-xl"></i>
                             </a>
                         </div>                    
                     </div>
 
                     <!-- Global Donation (EN) -->
-                    <div id="donasi-en" class="w-full bg-gray-50 p-8 rounded-3xl border border-gray-100 shadow-lg text-center relative overflow-hidden group hover:shadow-xl transition-shadow duration-300">
-                        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-green to-brand-blue"></div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Pugar Studio</h3>                 
+                    <div id="donasi-en" class="mx-auto">
                         <!-- Form Area -->
                         <div class="mb-12">
                             <style>
@@ -612,26 +509,25 @@
                             </style>
                             <form action="https://www.paypal.com/ncp/payment/MSQURBHJRXX6A" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:1.25rem;">
                                 <input class="pp-MSQURBHJRXX6A" type="submit" value="Support Us" />
-                                <img src="https://www.paypalobjects.com/images/Debit_Credit.svg" alt="cards" style="height: 2.25rem;" />
+                                <img src="https://www.paypalobjects.com/images/Debit_Credit.svg" alt="cards" style="height: 1.5rem;" />
                             </form>
                         </div>
-                        <p class="text-xl font-bold text-gray-800 mt-2 mb-4">Or Contact Us</p>
+                        <p class="text-xl font-bold text-gray-800 mt-2 mb-4 text-center">Or Contact Us</p>
                         <!-- Kontainer Ikon -->
-                        <div class="flex justify-center gap-8">
+                        <div class="flex justify-center gap-4">
                             <!-- WhatsApp -->
-                            <a href="https://wa.me/6282297698772" target="_blank" class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center text-white hover:bg-green-600 transition shadow-lg shadow-green-200 hover:scale-110">
-                                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <a href="https://wa.me/6282297698772" target="_blank" class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white hover:bg-green-600 transition shadow-lg shadow-green-200 hover:scale-110">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
                             </a>
                             <!-- Email -->
-                            <a href="mailto:deddyhermanhidayat@gmail.com" class="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center text-white hover:bg-red-600 transition shadow-lg shadow-red-200 hover:scale-110"
-                                onclick="tryMailto(event, 'deddyhermanhidayat@gmail.com')">
-                                <i class="fa-solid fa-envelope text-2xl"></i>
+                            <a href="mailto:pugarstudio@example.com" class="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center text-white hover:bg-red-600 transition shadow-lg shadow-red-200 hover:scale-110"
+                                onclick="tryMailto(event, 'pugarstudio@example.com')">
+                                <i class="fa-solid fa-envelope text-xl"></i>
                             </a>
                         </div>                    
                     </div>
 
                 </div>
-            </div>
         </div>
     </section>
 
@@ -641,12 +537,33 @@
             <div class="grid md:grid-cols-2 gap-8 mb-8">
                 <div class="md:col-span-1">
                     <a href="#" class="flex items-center gap-3 mb-4 text-white">
-                    <i class="fa-solid fa-leaf text-brand-green"></i>
+                    <div class="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:rotate-12 transition-transform">
+                        <img src="assets/iconi.png">
+                    </div>
                     <span class="text-xl font-bold">Pugar<span class="text-brand-green">Studio</span></span>
                     </a>
                     <p class="text-sm leading-relaxed max-w-md mb-4" data-i18n="footer_desc">
                     Sebuah inisiatif non-profit untuk menyatukan potensi pemuda, kemajuan teknologi, dan kearifan ekologi demi masa depan yang berkelanjutan.
                     </p>
+                    <!-- Ikon Media Sosial...
+                    <div class="flex space-x-3">
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-dark hover:text-white transition">
+                        <i class="fa-brands fa-x"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-blue hover:text-white transition">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-orange-500 hover:text-white transition">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-dark hover:text-white transition">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    </div>
+                    -->
                 </div>
             </div>
             <div class="border-t border-gray-800 pt-8 text-center text-sm">
