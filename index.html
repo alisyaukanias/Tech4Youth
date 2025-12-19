@@ -89,8 +89,8 @@
             <div class="hidden md:flex items-center space-x-6">
                 <a href="#home" class="text-sm font-semibold text-gray-600 hover:text-brand-green transition" data-i18n="nav_home">Beranda</a>
                 <a href="#visi" class="text-sm font-semibold text-gray-600 hover:text-brand-green transition" data-i18n="nav_vision">Visi Kami</a>
-                <a href="#program" class="text-sm font-semibold text-gray-600 hover:text-brand-green transition" data-i18n="nav_program">Aksi Nyata</a>
                 <a href="#products" class="text-sm font-semibold text-gray-600 hover:text-brand-green transition" data-i18n="nav_products">Proyek Digital</a>
+                <a href="#program" class="text-sm font-semibold text-gray-600 hover:text-brand-green transition" data-i18n="nav_program">Aksi Nyata</a>
                 <a href="#donasi" class="bg-brand-dark text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-brand-green transition shadow-lg hover:shadow-green-500/30" data-i18n="nav_support">Dukung Kami</a>
                 
                 <!-- Language Toggle Desktop -->
@@ -114,8 +114,8 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4 absolute w-full shadow-lg">
             <a href="#home" class="block py-2 text-gray-600 font-medium hover:text-brand-green" data-i18n="nav_home">Beranda</a>
             <a href="#visi" class="block py-2 text-gray-600 font-medium hover:text-brand-green" data-i18n="nav_vision">Visi Kami</a>
-            <a href="#program" class="block py-2 text-gray-600 font-medium hover:text-brand-green" data-i18n="nav_program">Aksi Nyata</a>
             <a href="#products" class="block py-2 text-gray-600 font-medium hover:text-brand-green" data-i18n="nav_products">Proyek Digital</a>
+            <a href="#program" class="block py-2 text-gray-600 font-medium hover:text-brand-green" data-i18n="nav_program">Aksi Nyata</a>
             <a href="#donasi" class="block mt-4 text-center bg-brand-green text-white py-2 rounded-lg font-bold" data-i18n="nav_support">Dukung Kami</a>
         </div>
     </nav>
@@ -207,8 +207,119 @@
         </div>
     </section>
 
-    <!-- Section Program (New Vertical Layout with Side Nav) -->
-    <section id="program" class="py-24 bg-white">
+    <!-- Section Product (New Vertical Layout with Side Nav) -->
+    <section id="products" class="py-24 bg-white">
+        <!-- Decoration -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-blue/5 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-green/5 rounded-full blur-3xl"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-12">
+                <span class="text-brand-blue font-bold tracking-wider uppercase text-sm mb-2 block" data-i18n="prod_badge">Proyek Digital</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-i18n="prod_title">Pendamping Digital Remaja</h2>
+            </div>
+
+            <!-- Tabs Layout -->
+            <div class="max-w-5xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                <!-- Tab Menu -->
+                <div class="flex flex-wrap items-center justify-center gap-2 p-2 bg-gray-100/80 border-b border-gray-200" role="tablist">
+                    <button onclick="switchTab('tab1')" id="btn-tab1" class="tab-btn px-6 py-3 rounded-xl text-sm font-bold text-gray-600 transition-all duration-300 hover:bg-white hover:text-brand-blue focus:outline-none bg-white shadow-sm text-brand-blue ring-1 ring-black/5" role="tab" aria-selected="true">
+                        <i class="fa-solid fa-mobile-screen mr-2"></i> Mini AI
+                    </button>
+                    <button onclick="switchTab('tab2')" id="btn-tab2" class="tab-btn px-6 py-3 rounded-xl text-sm font-bold text-gray-600 transition-all duration-300 hover:bg-white hover:text-brand-green focus:outline-none" role="tab" aria-selected="false">
+                        <i class="fa-solid fa-mobile-screen mr-2"></i> Mobile Game
+                    </button>
+                    <button onclick="switchTab('tab3')" id="btn-tab3" class="tab-btn px-6 py-3 rounded-xl text-sm font-bold text-gray-600 transition-all duration-300 hover:bg-white hover:text-brand-earth focus:outline-none" role="tab" aria-selected="false">
+                        <i class="fa-solid fa-mobile-screen mr-2"></i> Mobile App
+                    </button>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="p-8 md:p-12 min-h-[400px] relative">
+                    
+                    <!-- Tab 1: GemaSehat App -->
+                    <div id="tab1" class="tab-content active" role="tabpanel">
+                        <div class="flex flex-col md:flex-row items-center gap-10">
+                            <div class="md:w-1/2 relative group">
+                                <div class="absolute inset-0 bg-brand-blue/20 rounded-2xl transform rotate-3 transition-transform group-hover:rotate-6"></div>
+                                <div class="relative w-full aspect-[4/3] rounded-2xl shadow-lg bg-gray-100 overflow-hidden">
+                                <img 
+                                    src="assets/mini-ai.png" 
+                                    alt="AI" 
+                                    class="w-full h-full object-contain"
+                                >
+                            </div>
+                            </div>
+                            <div class="md:w-1/2">
+                                <div class="w-12 h-12 bg-blue-100 text-brand-blue rounded-xl flex items-center justify-center text-xl mb-6">
+                                    <i class="fa-solid fa-mobile-screen"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="prod_1_name">SahabatCurhat AI</h3>
+                                <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="prod_1_detail">
+                                    Menyediakan dukungan emosional yang selalu tersedia, pribadi, terpersonalisasi, dan dengan filter keamanan tinggi. Sebuah jangkar penting dalam menavigasi kesejahteraan mental mereka.
+                                </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: EcoMonitor -->
+                    <div id="tab2" class="tab-content" role="tabpanel">
+                        <div class="flex flex-col md:flex-row items-center gap-10">
+                            <div class="md:w-1/2 relative group">
+                                <div class="absolute inset-0 bg-brand-green/20 rounded-2xl transform -rotate-3 transition-transform group-hover:-rotate-6"></div>
+                                    <div class="relative w-full aspect-[4/3] rounded-2xl shadow-lg bg-gray-100 overflow-hidden">
+                                    <img 
+                                        src="assets/sims.png" 
+                                        alt="Game" 
+                                        class="w-full h-full object-contain"
+                                    >
+                                </div>
+                            </div>
+                            <div class="md:w-1/2">
+                                <div class="w-12 h-12 bg-green-100 text-brand-green rounded-xl flex items-center justify-center text-xl mb-6">
+                                    <i class="fa-solid fa-mobile-screen"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="prod_2_name">Game Simulasi</h3>
+                                <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="prod_2_detail">
+                                    Lingkungan yang aman dan bebas risiko bagi remaja untuk menguji coba pilihan hidup yang penting dan membangun kepercayaan diri dalam kemampuan mengambil keputusan.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3: EduTech Academy -->
+                    <div id="tab3" class="tab-content" role="tabpanel">
+                        <div class="flex flex-col md:flex-row items-center gap-10">
+                            <div class="md:w-1/2 relative group">
+                                <div class="absolute inset-0 bg-brand-earth/20 rounded-2xl transform rotate-3 transition-transform group-hover:rotate-6"></div>
+                                    <div class="relative w-full aspect-[4/3] rounded-2xl shadow-lg bg-gray-100 overflow-hidden">
+                                    <img 
+                                        src="assets/app-psi.jpg" 
+                                        alt="App" 
+                                        class="w-full h-full object-contain"
+                                    >
+                                    </div>
+                                </div>
+                            <div class="md:w-1/2">
+                                <div class="w-12 h-12 bg-orange-100 text-brand-earth rounded-xl flex items-center justify-center text-xl mb-6">
+                                    <i class="fa-solid fa-mobile-screen"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="prod_3_name">Aplikasi GrowthTracker</h3>
+                                <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="prod_3_detail">
+                                    Aplikasi yang dirancang untuk memberdayakan dan membekali remaja dengan keterampilan esensial: kesadaran diri (self-awareness), penguasaan interpersonal, dan manajemen hidup.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Program (New) -->
+    <section id="program" class="py-24 bg-gray-50 relative overflow-hidden">
         <div class="container mx-auto px-6">
             <div class="mb-12 text-center">
                 <span class="text-brand-green font-bold tracking-wider uppercase text-sm mb-2 block" data-i18n="prog_badge">Aksi Nyata</span>
@@ -316,117 +427,6 @@
                         </div>
                         <div class="font-bold text-sm">LOTEC</div>
                     </button>                    
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Produk Digital (New) -->
-    <section id="products" class="py-24 bg-gray-50 relative overflow-hidden">
-        <!-- Decoration -->
-        <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-blue/5 rounded-full blur-3xl"></div>
-        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-green/5 rounded-full blur-3xl"></div>
-
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-12">
-                <span class="text-brand-blue font-bold tracking-wider uppercase text-sm mb-2 block" data-i18n="prod_badge">Proyek Digital</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-i18n="prod_title">Pendamping Digital Remaja</h2>
-            </div>
-
-            <!-- Tabs Layout -->
-            <div class="max-w-5xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
-                <!-- Tab Menu -->
-                <div class="flex flex-wrap items-center justify-center gap-2 p-2 bg-gray-100/80 border-b border-gray-200" role="tablist">
-                    <button onclick="switchTab('tab1')" id="btn-tab1" class="tab-btn px-6 py-3 rounded-xl text-sm font-bold text-gray-600 transition-all duration-300 hover:bg-white hover:text-brand-blue focus:outline-none bg-white shadow-sm text-brand-blue ring-1 ring-black/5" role="tab" aria-selected="true">
-                        <i class="fa-solid fa-mobile-screen mr-2"></i> Mini AI
-                    </button>
-                    <button onclick="switchTab('tab2')" id="btn-tab2" class="tab-btn px-6 py-3 rounded-xl text-sm font-bold text-gray-600 transition-all duration-300 hover:bg-white hover:text-brand-green focus:outline-none" role="tab" aria-selected="false">
-                        <i class="fa-solid fa-mobile-screen mr-2"></i> Mobile Game
-                    </button>
-                    <button onclick="switchTab('tab3')" id="btn-tab3" class="tab-btn px-6 py-3 rounded-xl text-sm font-bold text-gray-600 transition-all duration-300 hover:bg-white hover:text-brand-earth focus:outline-none" role="tab" aria-selected="false">
-                        <i class="fa-solid fa-mobile-screen mr-2"></i> Mobile App
-                    </button>
-                </div>
-
-                <!-- Tab Content -->
-                <div class="p-8 md:p-12 min-h-[400px] relative">
-                    
-                    <!-- Tab 1: GemaSehat App -->
-                    <div id="tab1" class="tab-content active" role="tabpanel">
-                        <div class="flex flex-col md:flex-row items-center gap-10">
-                            <div class="md:w-1/2 relative group">
-                                <div class="absolute inset-0 bg-brand-blue/20 rounded-2xl transform rotate-3 transition-transform group-hover:rotate-6"></div>
-                                <div class="relative w-full aspect-[4/3] rounded-2xl shadow-lg bg-gray-100 overflow-hidden">
-                                <img 
-                                    src="assets/mini-ai.png" 
-                                    alt="AI" 
-                                    class="w-full h-full object-contain"
-                                >
-                            </div>
-                            </div>
-                            <div class="md:w-1/2">
-                                <div class="w-12 h-12 bg-blue-100 text-brand-blue rounded-xl flex items-center justify-center text-xl mb-6">
-                                    <i class="fa-solid fa-mobile-screen"></i>
-                                </div>
-                                <h3 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="prod_1_name">SahabatCurhat AI</h3>
-                                <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="prod_1_detail">
-                                    Menyediakan dukungan emosional yang selalu tersedia, pribadi, terpersonalisasi, dan dengan filter keamanan tinggi. Sebuah jangkar penting dalam menavigasi kesejahteraan mental mereka.
-                                </p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tab 2: EcoMonitor -->
-                    <div id="tab2" class="tab-content" role="tabpanel">
-                        <div class="flex flex-col md:flex-row items-center gap-10">
-                            <div class="md:w-1/2 relative group">
-                                <div class="absolute inset-0 bg-brand-green/20 rounded-2xl transform -rotate-3 transition-transform group-hover:-rotate-6"></div>
-                                    <div class="relative w-full aspect-[4/3] rounded-2xl shadow-lg bg-gray-100 overflow-hidden">
-                                    <img 
-                                        src="assets/sims.png" 
-                                        alt="Game" 
-                                        class="w-full h-full object-contain"
-                                    >
-                                </div>
-                            </div>
-                            <div class="md:w-1/2">
-                                <div class="w-12 h-12 bg-green-100 text-brand-green rounded-xl flex items-center justify-center text-xl mb-6">
-                                    <i class="fa-solid fa-mobile-screen"></i>
-                                </div>
-                                <h3 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="prod_2_name">Game Simulasi</h3>
-                                <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="prod_2_detail">
-                                    Lingkungan yang aman dan bebas risiko bagi remaja untuk menguji coba pilihan hidup yang penting dan membangun kepercayaan diri dalam kemampuan mengambil keputusan.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tab 3: EduTech Academy -->
-                    <div id="tab3" class="tab-content" role="tabpanel">
-                        <div class="flex flex-col md:flex-row items-center gap-10">
-                            <div class="md:w-1/2 relative group">
-                                <div class="absolute inset-0 bg-brand-earth/20 rounded-2xl transform rotate-3 transition-transform group-hover:rotate-6"></div>
-                                    <div class="relative w-full aspect-[4/3] rounded-2xl shadow-lg bg-gray-100 overflow-hidden">
-                                    <img 
-                                        src="assets/app-psi.jpg" 
-                                        alt="App" 
-                                        class="w-full h-full object-contain"
-                                    >
-                                    </div>
-                                </div>
-                            <div class="md:w-1/2">
-                                <div class="w-12 h-12 bg-orange-100 text-brand-earth rounded-xl flex items-center justify-center text-xl mb-6">
-                                    <i class="fa-solid fa-mobile-screen"></i>
-                                </div>
-                                <h3 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="prod_3_name">Aplikasi GrowthTracker</h3>
-                                <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="prod_3_detail">
-                                    Aplikasi yang dirancang untuk memberdayakan dan membekali remaja dengan keterampilan esensial: kesadaran diri (self-awareness), penguasaan interpersonal, dan manajemen hidup.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -544,7 +544,7 @@
                     <span class="text-xl font-bold">Pugar<span class="text-brand-green">Studio</span></span>
                     </a>
                     <p class="text-sm leading-relaxed max-w-md mb-4" data-i18n="footer_desc">
-                    Sebuah inisiatif non-profit untuk menyatukan potensi pemuda, kemajuan teknologi, dan kearifan ekologi demi masa depan yang berkelanjutan.
+                    Sebuah inisiatif untuk menyatukan potensi pemuda, kemajuan teknologi, dan kearifan ekologi demi masa depan yang berkelanjutan.
                     </p>
                     <!-- Ikon Media Sosial...
                     <div class="flex space-x-3">
@@ -666,6 +666,14 @@
                 pillar_3_desc: "Mencetak generasi yang adaptif, mengoptimalkan teknologi secara bijak, serta mampu berinovasi .",
                 pillar_4_title: "Harmoni Sosial",
                 pillar_4_desc: "Memupuk rasa empati dan kesadaran akan hak serta kewajiban demi terciptanya kehidupan bermasyarakat yang rukun.",
+                prod_badge: "Proyek Digital",
+                prod_title: "Pendamping digital remaja",
+                prod_1_name: "SahabatCurhat AI",
+                prod_1_detail: "Menyediakan dukungan emosional yang selalu tersedia, pribadi, terpersonalisasi, dan dengan filter keamanan tinggi. Sebuah jangkar penting dalam menavigasi kesejahteraan mental mereka.",
+                prod_2_name: "Game Simulasi",
+                prod_2_detail: "Lingkungan yang aman dan bebas risiko bagi remaja untuk menguji coba pilihan hidup yang penting dan membangun kepercayaan diri dalam kemampuan mengambil keputusan.",
+                prod_3_name: "GrowthTracker",
+                prod_3_detail: "Aplikasi yang dirancang untuk memberdayakan dan membekali remaja dengan keterampilan esensial: kesadaran diri (self-awareness), penguasaan interpersonal, dan manajemen hidup.",
                 prog_badge: "Aksi Nyata",
                 prog_title: "Pengembangan Keterampilan Dasar",
                 tag_personal: "GEMAS",
@@ -680,14 +688,6 @@
                 prog_3_desc: "Teknologi adalah kenyataan yang tak terhindarkan. Tugas kami memastikan remaja tidak ‘tenggelam’, melainkan mampu berenang memanfaatkannya. Kami ajarkan mereka cara mengoptimalkan teknologi agar hidup lebih produktif dan efisien. Dan khusus bagi mereka yang memiliki bakat lebih, kami sediakan ruang inkubasi untuk berkreasi melahirkan inovasi yang nyata.",
                 prog_4_title: "LoTec - Low Technology",
                 prog_4_desc: "Namun, kami juga sadar bahwa ketangguhan sejati diuji saat fasilitas tiada. Program ini adalah penyeimbang; kami melatih kemandirian dan keterampilan dasar kehidupan (life skills). Agar kelak, dalam situasi minim teknologi sekalipun, anak-anak kita tidak menjadi lumpuh, melainkan tetap mampu bertahan hidup dan berdaya guna.",
-                prod_badge: "Proyek Digital",
-                prod_title: "Pendamping digital remaja",
-                prod_1_name: "SahabatCurhat AI",
-                prod_1_detail: "Menyediakan dukungan emosional yang selalu tersedia, pribadi, terpersonalisasi, dan dengan filter keamanan tinggi. Sebuah jangkar penting dalam menavigasi kesejahteraan mental mereka.",
-                prod_2_name: "Game Simulasi",
-                prod_2_detail: "Lingkungan yang aman dan bebas risiko bagi remaja untuk menguji coba pilihan hidup yang penting dan membangun kepercayaan diri dalam kemampuan mengambil keputusan.",
-                prod_3_name: "GrowthTracker",
-                prod_3_detail: "Aplikasi yang dirancang untuk memberdayakan dan membekali remaja dengan keterampilan esensial: kesadaran diri (self-awareness), penguasaan interpersonal, dan manajemen hidup.",
                 quote_text: `"Pahami dirimu, orang lain, dan dunia di sekitarmu. Lalu, pelajari cara menggunakan teknologi dengan bijak. Dengan begitu, hidup jadi lebih tenang, mudah, dan damai."`,
                 quote_role: "Inisiator Pugar Studio",
                 donate_badge: "Mari Berbagi",
@@ -695,7 +695,7 @@
                 donate_desc: "Kontribusi Anda menjadi bahan bakar bagi kami untuk terus menanam kebaikan bagi generasi muda.",
                 contact_title: "Hubungi Kami",
                 form_btn: "Kirim Pesan",
-                footer_desc: "Sebuah inisiatif non-profit untuk menyatukan potensi pemuda, kemajuan teknologi, dan kearifan ekologi demi masa depan yang berkelanjutan.",
+                footer_desc: "Sebuah inisiatif untuk menyatukan potensi pemuda, kemajuan teknologi, dan kearifan ekologi demi masa depan yang berkelanjutan.",
                 footer_rights: "Dilindungi Undang-Undang.",
                 footer_love: `Dibuat dengan <i class="fa-solid fa-heart text-red-500 mx-1"></i> untuk Generasi Baru.`
             },
@@ -720,6 +720,14 @@
                 pillar_3_desc: "Empowering an adaptive generation to optimize technology wisely and drive meaningful innovation.",
                 pillar_4_title: "Social Harmony",
                 pillar_4_desc: "Nurturing empathy and civic awareness—balancing rights and duties—to foster a harmonious community.",
+                prod_badge: "Digital Project",
+                prod_title: "Youth Digital Companion",
+                prod_1_name: "Confidant AI",
+                prod_1_detail: "Providing always-available, private, personalized emotional support, and high safety filter — a critical anchor point for navigating their mental well-being.",
+                prod_2_name: "Simulation Game",
+                prod_2_detail: "A safe, risk-free environment for teens to test-drive pivotal life choices and build confidence in their decision-making capabilities.",
+                prod_3_name: "GrowthTracker",
+                prod_3_detail: "App designed to empower and equip teens with essential skills: self-awareness, interpersonal mastery, and life management.",
                 prog_badge: "Real Action",
                 prog_title: "Core Skills Developmnet",
                 tag_personal: "GEMAS",
@@ -734,14 +742,6 @@
                 prog_3_desc: "Technology is an inevitable reality. Our mission is to ensure youth don't 'drown' in it, but learn to 'swim' and leverage it. We teach them to optimize tech for productivity and efficiency. For those with exceptional talent, we provide an incubation space to create real-world innovations.",
                 prog_4_title: "LoTec - Low Technology",
                 prog_4_desc: "True resilience is tested when facilities are scarce. This program acts as a counterbalance; we train independence and essential life skills. So even in low-tech situations, our children won't be helpless—they will remain capable, adaptable, and self-reliant.",
-                prod_badge: "Digital Project",
-                prod_title: "Youth Digital Companion",
-                prod_1_name: "Confidant AI",
-                prod_1_detail: "Providing always-available, private, personalized emotional support, and high safety filter — a critical anchor point for navigating their mental well-being.",
-                prod_2_name: "Simulation Game",
-                prod_2_detail: "A safe, risk-free environment for teens to test-drive pivotal life choices and build confidence in their decision-making capabilities.",
-                prod_3_name: "GrowthTracker",
-                prod_3_detail: "App designed to empower and equip teens with essential skills: self-awareness, interpersonal mastery, and life management.",
                 quote_text: "Understand yourself, others, and the world around you. Then, learn to use technology wisely. That’s how life becomes calmer, easier, and more peaceful.",
                 quote_role: "Pugar Studio Initiator",
                 donate_badge: "Share The Care",
@@ -749,7 +749,7 @@
                 donate_desc: "Your contribution fuels us to continue planting kindness for the younger generation.",
                 contact_title: "Contact Us",
                 form_btn: "Send Message",
-                footer_desc: "A non-profit initiative to unite youth potential, technological advancement, and ecological wisdom for a sustainable future.",
+                footer_desc: "An initiative to unite youth potential, technological advancement, and ecological wisdom for a sustainable future.",
                 footer_rights: "All Rights Reserved.",
                 footer_love: `Made with <i class="fa-solid fa-heart text-red-500 mx-1"></i> for Next-Gen.`
             }
